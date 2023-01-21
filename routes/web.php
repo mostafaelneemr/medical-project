@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\website\websiteController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +27,13 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'
     })->name('dashboard');
 });
 
+
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){ 
+
+        Route::get('home', [websiteController::class, 'index']);
+
+    });
