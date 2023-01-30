@@ -12,7 +12,7 @@
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-12">
                 <div class="about-thumb text-center text-lg-end pr--100 pr_md--15 pr_sm--15">
-                    <img src="img/interior/about.png" alt="Multipurpose">
+                    <img src="{{asset('website/img/interior/about.png')}}" alt="Multipurpose">
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
@@ -53,7 +53,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-12 wow move-up">
                 <div class="service service--1 text-center mt--30">
                     <div class="icons">
-                        <img src="img/interior/ios7-eye-outline.png" alt="icon">
+                        <img src="{{asset('website/img/interior/ios7-eye-outline.png')}}" alt="icon">
                     </div>
                     <div class="content">
                         <h4>Architectural Design</h4>
@@ -69,7 +69,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-12 wow move-up">
                 <div class="service service--1 text-center mt--30">
                     <div class="icons">
-                        <img src="img/interior/brush.png" alt="icon">
+                        <img src="{{asset('website/img/interior/brush.png')}}" alt="icon">
                     </div>
                     <div class="content">
                         <h4>Interior Design</h4>
@@ -85,7 +85,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-12 wow move-up">
                 <div class="service service--1 text-center mt--30">
                     <div class="icons">
-                        <img src="img/interior/ios7-browsers-outline.png" alt="icon">
+                        <img src="{{asset('website/img/interior/ios7-browsers-outline.png')}}" alt="icon">
                     </div>
                     <div class="content">
                         <h4>Lighting Design</h4>
@@ -111,7 +111,7 @@
             <div class="col-lg-12 col-xl-6 col-12">
                 <div class="portfolio-cation wow move-up">
                     <div class="thumb">
-                        <img src="img/interior/gallery1.jpg" alt="Portfolio Images">
+                        <img src="{{asset('website/img/interior/gallery1.jpg')}}" alt="Portfolio Images">
                     </div>
                     <div class="port-overlay-info">
                         <div class="hover-action">
@@ -129,7 +129,7 @@
                         <!-- Start Single Portfolio -->
                         <div class="portfolio-cation wow move-up">
                             <div class="thumb">
-                                <img src="img/interior/gallery2.jpg" alt="Portfolio Images">
+                                <img src="{{asset('website/img/interior/gallery2.jpg')}}" alt="Portfolio Images">
                             </div>
                             <div class="port-overlay-info">
                                 <div class="hover-action">
@@ -144,7 +144,7 @@
                         <!-- Start Single Portfolio -->
                         <div class="portfolio-cation wow move-up">
                             <div class="thumb">
-                                <img src="img/interior/gallery3.jpg" alt="Portfolio Images">
+                                <img src="{{asset('website/img/interior/gallery3.jpg')}}" alt="Portfolio Images">
                             </div>
                             <div class="port-overlay-info">
                                 <div class="hover-action">
@@ -159,7 +159,7 @@
                         <!-- Start Single Portfolio -->
                         <div class="portfolio-cation wow move-up">
                             <div class="thumb">
-                                <img src="img/interior/gallery4.jpg" alt="Portfolio Images">
+                                <img src="{{asset('website/img/interior/gallery4.jpg')}}" alt="Portfolio Images">
                             </div>
                             <div class="port-overlay-info">
                                 <div class="hover-action">
@@ -195,7 +195,7 @@
                     <div class="product-thumbnail">
                         <div class="thumbnail">
                             <div class="product-main-image">
-                                <img src="img/interior/product1.jpg" alt="Multipurpose">
+                                <img src="{{asset('website/img/interior/product1.jpg')}}" alt="Multipurpose">
                             </div>
                         </div>
                         <div class="product-action">
@@ -222,7 +222,7 @@
                     <div class="product-thumbnail">
                         <div class="thumbnail">
                             <div class="product-main-image">
-                                <img src="img/interior/product2.jpg" alt="Multipurpose">
+                                <img src="{{asset('website/img/interior/product2.jpg')}}" alt="Multipurpose">
                             </div>
                         </div>
                         <div class="product-action">
@@ -249,7 +249,7 @@
                     <div class="product-thumbnail">
                         <div class="thumbnail">
                             <div class="product-main-image">
-                                <img src="img/interior/product3.jpg" alt="Multipurpose">
+                                <img src="{{asset('website/img/interior/product3.jpg')}}" alt="Multipurpose">
                             </div>
                         </div>
                         <div class="product-action">
@@ -276,7 +276,7 @@
                     <div class="product-thumbnail">
                         <div class="thumbnail">
                             <div class="product-main-image">
-                                <img src="img/interior/product4.jpg" alt="Multipurpose">
+                                <img src="{{asset('website/img/interior/product4.jpg')}}" alt="Multipurpose">
                             </div>
                         </div>
                         <div class="product-action">
@@ -303,7 +303,7 @@
                     <div class="product-thumbnail">
                         <div class="thumbnail">
                             <div class="product-main-image">
-                                <img src="img/interior/product5.jpg" alt="Multipurpose">
+                                <img src="{{asset('website/img/interior/product5.jpg')}}" alt="Multipurpose">
                             </div>
                         </div>
                         <div class="product-action">
@@ -330,7 +330,7 @@
                     <div class="product-thumbnail">
                         <div class="thumbnail">
                             <div class="product-main-image">
-                                <img src="img/interior/product6.jpg" alt="Multipurpose">
+                                <img src="{{asset('website/img/interior/product6.jpg')}}" alt="Multipurpose">
                             </div>
                         </div>
                         <div class="product-action">
@@ -372,7 +372,7 @@
                             offers all the functions and features with simple instructions”</p>
                         <div class="testimonial-info">
                             <div class="post-thumbnail">
-                                <img src="img/testimonial/clint-1/clint-1.jpg" alt="clint image">
+                                <img src="{{asset('website/img/testimonial/clint-1/clint-1.jpg')}}" alt="clint image">
                             </div>
                             <div class="clint-info">
                                 <h6>Harley Mills</h6>
@@ -397,7 +397,7 @@
                             concepts for creative agencies like ours.”</p>
                         <div class="testimonial-info">
                             <div class="post-thumbnail">
-                                <img src="img/testimonial/clint-1/clint-2.jpg" alt="clint image">
+                                <img src="{{asset('website/img/testimonial/clint-1/clint-2.jpg')}}" alt="clint image">
                             </div>
                             <div class="clint-info">
                                 <h6>Harley Mills</h6>
@@ -423,7 +423,7 @@
                             offers all the functions and features with simple instructions”</p>
                         <div class="testimonial-info">
                             <div class="post-thumbnail">
-                                <img src="img/testimonial/clint-1/clint-3.jpg" alt="clint image">
+                                <img src="{{asset('website/img/testimonial/clint-1/clint-3.jpg')}}" alt="clint image">
                             </div>
                             <div class="clint-info">
                                 <h6>Blanche Fields</h6>
@@ -449,7 +449,7 @@
                             offers all the functions and features with simple instructions”</p>
                         <div class="testimonial-info">
                             <div class="post-thumbnail">
-                                <img src="img/testimonial/clint-1/clint-4.jpg" alt="clint image">
+                                <img src="{{asset('website/img/testimonial/clint-1/clint-4.jpg')}}" alt="clint image">
                             </div>
                             <div class="clint-info">
                                 <h6>Leck Cassie</h6>
@@ -475,7 +475,7 @@
                             offers all the functions and features with simple instructions”</p>
                         <div class="testimonial-info">
                             <div class="post-thumbnail">
-                                <img src="img/testimonial/clint-1/clint-5.jpg" alt="clint image">
+                                <img src="{{asset('website/img/testimonial/clint-1/clint-5.jpg')}}" alt="clint image">
                             </div>
                             <div class="clint-info">
                                 <h6>Cassie Ventura</h6>
@@ -500,7 +500,7 @@
                                 theme.</span>”</p>
                         <div class="testimonial-info">
                             <div class="post-thumbnail">
-                                <img src="img/testimonial/clint-1/clint-6.jpg" alt="clint image">
+                                <img src="{{asset('website/img/testimonial/clint-1/clint-6.jpg')}}" alt="clint image">
                             </div>
                             <div class="clint-info">
                                 <h6>Rex Watson</h6>
@@ -519,10 +519,11 @@
         </div>
     </div>
 
-    <div class="vc_row-separator triangle triangle--top top"><svg xmlns="http://www.w3.org/2000/svg"
-            version="1.1" viewBox="0 0 0.156661 0.1">
+    <div class="vc_row-separator triangle triangle--top top">
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 0.156661 0.1">
             <polygon points="0.156661,3.93701e-006 0.156661,0.000429134 0.117665,0.05 0.0783307,0.0999961 0.0389961,0.05 -0,0.000429134 -0,3.93701e-006 0.0783307,3.93701e-006 "></polygon>
-        </svg></div>
+        </svg>
+    </div>
 
     <div class="more-testimonials-btn text-center mt--50 wow move-up">
         <a class="moredetails-btn font-16" href="#">More testimonials <i class="fa fa-arrow-right"></i></a>
@@ -548,28 +549,22 @@
                     <!-- Image Wrap -->
                     <div class="image-wrap">
                         <div class="thumb">
-                            <img src="img/interior/team1.jpg" alt="Team images">
+                            <img src="{{asset('website/img/interior/team1.jpg')}}" alt="Team images">
                             <div class="overlay"></div>
                             <div class="shape">
-                                <img class="shape-01" src="img/team/shape/team-shape-1.png" alt="shape image">
-                                <img class="shape-02" src="img/team/shape/team-shape-2.png" alt="shape image">
-                                <img class="shape-03" src="img/team/shape/team-shape-3.png" alt="shape image">
+                                <img class="shape-01" src="{{asset('website/img/team/shape/team-shape-1.png')}}" alt="shape image">
+                                <img class="shape-02" src="{{asset('website/img/team/shape/team-shape-2.png')}}" alt="shape image">
+                                <img class="shape-03" src="{{asset('website/img/team/shape/team-shape-3.png')}}" alt="shape image">
                             </div>
                         </div>
                         <!-- Social Network -->
                         <div class="social-networks">
                             <div class="inner">
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
 
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
 
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
 
@@ -589,28 +584,22 @@
                     <!-- Image Wrap -->
                     <div class="image-wrap">
                         <div class="thumb">
-                            <img src="img/interior/team2.jpg" alt="Team images">
+                            <img src="{{asset('website/img/interior/team2.jpg')}}" alt="Team images">
                             <div class="overlay"></div>
                             <div class="shape">
-                                <img class="shape-01" src="img/team/shape/team-shape-1.png" alt="shape image">
-                                <img class="shape-02" src="img/team/shape/team-shape-2.png" alt="shape image">
-                                <img class="shape-03" src="img/team/shape/team-shape-3.png" alt="shape image">
+                                <img class="shape-01" src="{{asset('website/img/team/shape/team-shape-1.png')}}" alt="shape image">
+                                <img class="shape-02" src="{{asset('website/img/team/shape/team-shape-2.png')}}" alt="shape image">
+                                <img class="shape-03" src="{{asset('website/img/team/shape/team-shape-3.png')}}" alt="shape image">
                             </div>
                         </div>
                         <!-- Social Network -->
                         <div class="social-networks">
                             <div class="inner">
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
 
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
 
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
 
@@ -630,28 +619,22 @@
                     <!-- Image Wrap -->
                     <div class="image-wrap">
                         <div class="thumb">
-                            <img src="img/interior/team3.jpg" alt="Team images">
+                            <img src="{{asset('website/img/interior/team3.jpg')}}" alt="Team images">
                             <div class="overlay"></div>
                             <div class="shape">
-                                <img class="shape-01" src="img/team/shape/team-shape-1.png" alt="shape image">
-                                <img class="shape-02" src="img/team/shape/team-shape-2.png" alt="shape image">
-                                <img class="shape-03" src="img/team/shape/team-shape-3.png" alt="shape image">
+                                <img class="shape-01" src="{{asset('website/img/team/shape/team-shape-1.png')}}" alt="shape image">
+                                <img class="shape-02" src="{{asset('website/img/team/shape/team-shape-2.png')}}" alt="shape image">
+                                <img class="shape-03" src="{{asset('website/img/team/shape/team-shape-3.png')}}" alt="shape image">
                             </div>
                         </div>
                         <!-- Social Network -->
                         <div class="social-networks">
                             <div class="inner">
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
 
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
 
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
 
@@ -671,28 +654,22 @@
                     <!-- Image Wrap -->
                     <div class="image-wrap">
                         <div class="thumb">
-                            <img src="img/interior/team4.jpg" alt="Team images">
+                            <img src="{{asset('website/img/interior/team4.jpg')}}" alt="Team images">
                             <div class="overlay"></div>
                             <div class="shape">
-                                <img class="shape-01" src="img/team/shape/team-shape-1.png" alt="shape image">
-                                <img class="shape-02" src="img/team/shape/team-shape-2.png" alt="shape image">
-                                <img class="shape-03" src="img/team/shape/team-shape-3.png" alt="shape image">
+                                <img class="shape-01" src="{{asset('website/img/team/shape/team-shape-1.png')}}" alt="shape image">
+                                <img class="shape-02" src="{{asset('website/img/team/shape/team-shape-2.png')}}" alt="shape image">
+                                <img class="shape-03" src="{{asset('website/img/team/shape/team-shape-3.png')}}" alt="shape image">
                             </div>
                         </div>
                         <!-- Social Network -->
                         <div class="social-networks">
                             <div class="inner">
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
 
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
 
-                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             </div>
                         </div>
 
@@ -750,7 +727,7 @@
                 <div class="blog-grid blog-standard grid-simple">
                     <div class="post-thumb">
                         <a href="blog-details.html">
-                            <img src="img/interior/blog2.jpg" alt="Multipurpose template">
+                            <img src="{{asset('website/img/interior/blog2.jpg')}}" alt="Multipurpose template">
                         </a>
                     </div>
                     <div class="post-content text-center">
@@ -771,7 +748,7 @@
                 <div class="blog-grid blog-standard grid-simple">
                     <div class="post-thumb">
                         <a href="blog-details.html">
-                            <img src="img/interior/blog3.jpg" alt="Multipurpose template">
+                            <img src="{{asset('website/img/interior/blog3.jpg')}}" alt="Multipurpose template">
                         </a>
                     </div>
                     <div class="post-content text-center">

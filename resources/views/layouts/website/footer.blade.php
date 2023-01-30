@@ -66,7 +66,7 @@
                                         <div class="item-grid grid-style--1">
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <img src="img/instagram/instagram-1/instagram-7.jpg" alt="instagram images">
+                                                    <img src="{{asset('website/img/instagram/instagram-1/instagram-7.jpg')}}" alt="instagram images">
                                                 </a>
                                                 <div class="item-info">
                                                     <div class="inner">
@@ -82,7 +82,7 @@
                                         <div class="item-grid grid-style--1">
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <img src="img/instagram/instagram-1/instagram-8.jpg" alt="instagram images">
+                                                    <img src="{{asset('website/img/instagram/instagram-1/instagram-8.jpg')}}" alt="instagram images">
                                                 </a>
                                                 <div class="item-info">
                                                     <div class="inner">
@@ -98,7 +98,7 @@
                                         <div class="item-grid grid-style--1">
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <img src="img/instagram/instagram-1/instagram-9.jpg" alt="instagram images">
+                                                    <img src="{{asset('website/img/instagram/instagram-1/instagram-9.jpg')}}" alt="instagram images">
                                                 </a>
                                                 <div class="item-info">
                                                     <div class="inner">
@@ -114,7 +114,7 @@
                                         <div class="item-grid grid-style--1">
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <img src="img/instagram/instagram-1/instagram-10.jpg" alt="instagram images">
+                                                    <img src="{{asset('website/img/instagram/instagram-1/instagram-10.jpg')}}" alt="instagram images">
                                                 </a>
                                                 <div class="item-info">
                                                     <div class="inner">
@@ -130,7 +130,7 @@
                                         <div class="item-grid grid-style--1">
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <img src="img/instagram/instagram-1/instagram-11.jpg" alt="instagram images">
+                                                    <img src="{{asset('website/img/instagram/instagram-1/instagram-11.jpg')}}" alt="instagram images">
                                                 </a>
                                                 <div class="item-info">
                                                     <div class="inner">
@@ -146,7 +146,7 @@
                                         <div class="item-grid grid-style--1">
                                             <div class="thumb">
                                                 <a href="#">
-                                                    <img src="img/instagram/instagram-1/instagram-12.jpg" alt="instagram images">
+                                                    <img src="{{asset('website/img/instagram/instagram-1/instagram-12.jpg')}}" alt="instagram images">
                                                 </a>
                                                 <div class="item-info">
                                                     <div class="inner">

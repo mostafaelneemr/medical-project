@@ -8,7 +8,7 @@
                 <div class="header-left">
                     <div class="logo">
                         <a href="index.html">
-                            <img src="img/logo/brook-white.png" alt="Brook Images">
+                            <img src="{{asset('website/img/logo/brook-white.png')}}" alt="Brook Images">
                         </a>
                     </div>
                 </div>
