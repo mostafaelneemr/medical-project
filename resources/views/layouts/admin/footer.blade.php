@@ -1,12 +1,12 @@
 <!-- footer -->
-<footer class="bg-white p-4">
+<footer class="bg-white p-4 mt-5">
     <div class="row">
       <div class="col-md-6">
         <div class="text-center text-md-left">
             <p class="mb-0"> &copy; copy right <span id="copyright"> <script>document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))</script></span>. <span style="color: #000">Ahmed Rashed</span> All Rights Reserved </p>
         </div>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-6 mt-15">
         <ul class="text-center text-md-right">
           <li class="list-inline-item"><p>Terms & Conditions</p></li>
           <li class="list-inline-item"><p>API Use Policy</p></li>
@@ -15,8 +15,5 @@
       </div>
     </div>
   </footer>
-  </div>
-</div>
-</div>
-</div>
+  
 <!-- footer -->
