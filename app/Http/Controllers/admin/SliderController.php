@@ -31,7 +31,7 @@ class SliderController extends Controller
         try{
             $image = $request->file('image_url');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(917, 1000)->save('upload/sliders/' . $name_gen);
+            Image::make($image)->resize(1920, 1000)->save('upload/sliders/' . $name_gen);
             $save_url = 'upload/sliders/' . $name_gen;
 
             Slider::create([
@@ -52,35 +52,55 @@ class SliderController extends Controller
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
     }
-
-    public function show()
-    {
-        //
+    
+    public function show($id){
+        dd($id);
     }
 
    // Function Edit//
     public function edit($id)
     {
         $slider = Slider::findorFail($id);
-      return view('admin.homepage.sliders.edit', compact('slider'));
+        return view('admin.homepage.sliders.edit', compact('slider'));
     }
 
    // Function Update//
     public function update(Request $request, $id)
     {
         try {
-            //
+            $id = $request->id;
+            $old_image = $request->old_image;
+
+            if($request->file('image_url')){
+                unlink($old_image);
+                $image = $request->file('image_url');
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1920,1000)->save('upload/sliders/'.$name_gen);
+                $save_url = 'upload/sliders/'.$name_gen;
+            }
+
+            Slider::findOrFail($id)->update([
+                'title' => ['ar' => $request->title_ar, 'en' => $request->title], 
+                'sub_title' => ['ar' => $request->sub_title_ar, 'en' => $request->sub_title], 
+                'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
+                'publish' => $request->publish,
+                // 'image_url' => $save_url,
+            ]);
+
+            $notification = array(
+                'message' => 'slider updated Successfully',
+                'alert-type' => 'info',
+            );
+            return redirect()->route('slider.index')->with($notification);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
-       
     }
 
     // Function Destroy//
    public function destroy($id){
 
-        Slider::findorFail($id)->delete();
-       return redirect()->route('slider.index')->with('message', 'delete');
+       // half time from 9.30 to 10
    }
 
 }

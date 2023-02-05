@@ -362,6 +362,8 @@
                 <div id="rev_slider_8_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.7">
                     <ul>
                         <!-- SLIDE  -->
+                        @foreach ($sliders as $slider)
+                            
                         <li data-index="rs-16" data-transition="curtain-1,curtain-3,curtain-2" data-slotamount="default,default,default,default"
                             data-hideafterloop="0" data-hideslideonmobile="off" data-randomtransition="on" data-easein="default,default,default,default"
                             data-easeout="default,default,default,default" data-masterspeed="default,default,default,default"
@@ -370,12 +372,12 @@
                             data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
                             data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="{{asset('website/img/interior/slider1.jpg')}}" alt="" data-bgposition="center center"
+                            <img src="{{$slider->image_url}}" alt="" data-bgposition="center center"
                                 data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                             <!-- LAYERS -->
 
                             <!-- LAYER NR. 2 -->
-                            <div class="tp-caption   tp-resizeme" id="slide-16-layer-1" data-x="['center','center','center','center']"
+                            <div class="tp-caption tp-resizeme" id="slide-16-layer-1" data-x="['center','center','center','center']"
                                 data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
                                 data-voffset="['-25','-28','-28','-10']" data-fontsize="['80','60','45','30']"
                                 data-lineheight="['90','67','50','34']" data-width="['670','670','620','380']"
@@ -383,8 +385,8 @@
                                 data-responsive_offset="on" data-frames='[{"delay":700,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
                                 data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                                 data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                                style="z-index: 6; min-width: 630px; max-width: 630px; white-space: normal; font-size: 80px; line-height: 90px; font-weight: 700; color: #ffffff; letter-spacing: 0px;">comfortable, style
-                                & perfect</div>
+                                style="z-index: 6; min-width: 630px; max-width: 630px; white-space: normal; font-size: 80px; line-height: 90px; font-weight: 700; color: #ffffff; letter-spacing: 0px;">
+                                {{$slider->title}}</div>
 
                             <!-- LAYER NR. 3 -->
                             <a class="tp-caption rev-btn   smooth-scroll-link" href="#section-about" target="_self" id="slide-16-layer-24"
@@ -396,8 +398,11 @@
                                 data-paddingright="[20,20,20,20]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[20,20,20,20]"
                                 style="z-index: 7; min-width: 160px; max-width: 160px; max-width: 55px; max-width: 55px; white-space: normal; font-size: 16px; line-height: 55px; font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">Hire Us</a>
                         </li>
+
+                        @endforeach
+
                         <!-- SLIDE  -->
-                        <li data-index="rs-17" data-transition="incube,incube-horizontal,turnoff-vertical,turnoff"
+                        {{-- <li data-index="rs-17" data-transition="incube,incube-horizontal,turnoff-vertical,turnoff"
                             data-slotamount="default,default,default,default" data-hideafterloop="0"
                             data-hideslideonmobile="off" data-easein="default,default,default,default" data-easeout="default,default,default,default"
                             data-masterspeed="default,default,default,default" data-thumb="img/revoulation/100x50_slider-authentic-studio-slide-02-bg.jpg"
@@ -430,9 +435,9 @@
                                 data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                                 data-paddingright="[20,20,20,20]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[20,20,20,20]"
                                 style="z-index: 7; min-width: 160px; max-width: 160px; max-width: 55px; max-width: 55px; white-space: normal; font-size: 16px; line-height: 55px; font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">Hire Us </a>
-                        </li>
+                        </li> --}}
                         <!-- SLIDE  -->
-                        <li data-index="rs-18" data-transition="cube,cube-horizontal,incube,incube-horizontal"
+                        {{-- <li data-index="rs-18" data-transition="cube,cube-horizontal,incube,incube-horizontal"
                             data-slotamount="default,default,default,default" data-hideafterloop="0"
                             data-hideslideonmobile="off" data-easein="default,default,default,default" data-easeout="default,default,default,default"
                             data-masterspeed="default,default,default,default" data-thumb="img/revoulation/100x50_slider-authentic-studio-slide-03-bg.jpg"
@@ -465,7 +470,7 @@
                                 data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                                 data-paddingright="[20,20,20,20]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[20,20,20,20]"
                                 style="z-index: 7; min-width: 160px; max-width: 160px; max-width: 55px; max-width: 55px; white-space: normal; font-size: 16px; line-height: 55px; font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">Hire Us</a>
-                        </li>
+                        </li> --}}
                     </ul>
                     <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
                 </div>
