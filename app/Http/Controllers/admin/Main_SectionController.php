@@ -6,51 +6,43 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Main_SectionRequest;
 use App\Models\Main_Section;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class Main_SectionController extends Controller
 {
-
     public function index(){
-
         $main_section = Main_Section::all();
         return view('admin.homepage.main-section.index', compact('main_section'));
     }
 
     public function create(){
-
         return view('admin.homepage.main-section.create');
     }
 
+    public function store(Request $request){
+        try{
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(531, 670)->save('upload/homepage/' . $name_gen);
+            $save_url = 'upload/homepage/' . $name_gen;
 
+            Main_Section::create([
+                'title' => ['ar' => $request->title_ar, 'en' => $request->title], 
+                'subtitle' => ['ar' => $request->subtitle_ar, 'en' => $request->subtitle], 
+                'description' => ['ar' => $request->description_ar, 'en' => $request->description], 
+                'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
+                'image' => $save_url,
+            ]);
 
-    public function store(Main_SectionRequest  $request){
-
-        $fil_name  = $this->saveImage($request->image, 'backend/images/main');
-
-       Main_Section::create([
-           'image' => $fil_name,
-           'title_ar' => $request->title_ar,
-           'title_en' => $request->title_en,
-           'subtitle_ar' => $request->subtitle_ar ,
-           'subtitle_en' => $request->subtitle_en,
-           'title_details_ar' => $request->title_details_ar,
-           'title_details_en' => $request->title_details_en,
-           'button_ar'=> $request->button_ar,
-           'button_en' => $request->button_en,
-       ]);
-
-        return redirect()->route('main.index');
+            $notification = array(
+                'message' => 'main-section Inserted Successfully',
+                'alert-type' => 'success',
+            );
+            return redirect()->route('main-section.index')->with($notification);
+        }catch (\Exception $e) {
+            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
-    protected function saveImage($image, $folder){
-        $file_extension = $image->getClientOriginalExtension();
-        $fil_name = time().'.'.$file_extension;
-        $path = $folder;
-        $image->move($path,$fil_name);
-        return $fil_name;
-    }
-
-
-
 
     public function edit($id){
 
@@ -58,34 +50,52 @@ class Main_SectionController extends Controller
         return view('admin.homepage.main-section.edit', compact('main_section'));
     }
 
+    public function update(Request $request, $id){
+        try {
+            $id = $request->id;
+            $old_image = $request->old_image;
 
-   public function update(Request $request, $id){
+            if($request->file('image')){
+                unlink($old_image);
+                $image = $request->file('image');
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(1920,1000)->save('upload/homepage/'.$name_gen);
+                $save_url = 'upload/homepage/'.$name_gen;
+                Main_Section::findOrFail($id)->update(['image' => $save_url]);
+            }
 
-       $fil_name  = $this->saveImage($request->image, 'backend/images/main');
+            Main_Section::findOrFail($id)->update([
+                'title' => ['ar' => $request->title_ar, 'en' => $request->title], 
+                'subtitle' => ['ar' => $request->subtitle_ar, 'en' => $request->subtitle], 
+                'description' => ['ar' => $request->description_ar, 'en' => $request->description], 
+                'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
+            ]);
 
-         $main = Main_Section::findorFail($id);
-         $main->update([
-             'image' => $fil_name,
-             'title_ar' => $request->title_ar,
-             'title_en' => $request->title_en,
-             'subtitle_ar' => $request->subtitle_ar ,
-             'subtitle_en' => $request->subtitle_en,
-             'title_details_ar' => $request->title_details_ar,
-             'title_details_en' => $request->title_details_en,
-             'button_ar'=> $request->button_ar,
-             'button_en' => $request->button_en,
-         ]);
+            $notification = array(
+                'message' => 'main section updated Successfully',
+                'alert-type' => 'info',
+            );
+            return redirect()->route('main-section.index')->with($notification);
+        } catch (\Exception $e) {
+            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
+        }
+    }
 
-       return redirect()->route('main.index');
-   }
+    public function show($id){
+        $slider = Main_Section::findOrFail($id);
+        $img = $slider->image;
+        unlink($img);
 
+        Main_Section::findOrFail($id)->delete();
 
-     public function destroy($id){
+        $notification = array(
+            'message' => 'delete slider success',
+            'alert-type' => 'error',
+        );
 
-        Main_Section::findorFail($id)->delete();
+        return redirect()->back()->with($notification);
 
-         return redirect()->route('main.index');
-     }
+    }
 
 
 

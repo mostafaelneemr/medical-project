@@ -33,6 +33,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'
     Route::get('/dashboard', function () { return view('admin.dashboard'); })->name('dashboard');
 
     Route::resource('slider', SliderController::class);
+    Route::resource('main-section', Main_SectionController::class);
+    Route::resource('interior_Section', Interior_SectionController::class);
 });
 
 
@@ -42,8 +44,7 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
 
-        Route::get('/', [websiteController::class, 'HomePage']);
-
+        Route::get('/', [websiteController::class, 'index']);
     });
 
 
@@ -58,24 +59,24 @@ Route::group(
 // });
 
 //Main_SectionController
- Route::controller(Main_SectionController::class)->group(function (){
-    Route::get('main', 'index')->name('main.index');
-    Route::get('main/create', 'create');
-    Route::post('main/store', 'store');
-    Route::get('main/edit{id}', 'edit');
-    Route::post('main/update{id}', 'update');
-    Route::get('main/delete{id}', 'destroy');
-});
+//  Route::controller(Main_SectionController::class)->group(function (){
+//     Route::get('main', 'index')->name('main.index');
+//     Route::get('main/create', 'create');
+//     Route::post('main/store', 'store');
+//     Route::get('main/edit{id}', 'edit');
+//     Route::post('main/update{id}', 'update');
+//     Route::get('main/delete{id}', 'destroy');
+// });
 
 //Interior_SectionController
-Route::controller(Interior_SectionController::class)->group(function (){
-    Route::get('interior', 'index')->name('interior.index');
-    Route::get('interior/create', 'create');
-    Route::post('interior/store', 'store');
-    Route::get('interior/edit{id}', 'edit');
-    Route::post('interior/update{id}', 'update');
-    Route::get('interior/delete{id}', 'destroy');
-});
+// Route::controller(Interior_SectionController::class)->group(function (){
+//     Route::get('interior', 'index')->name('interior.index');
+//     Route::get('interior/create', 'create');
+//     Route::post('interior/store', 'store');
+//     Route::get('interior/edit{id}', 'edit');
+//     Route::post('interior/update{id}', 'update');
+//     Route::get('interior/delete{id}', 'destroy');
+// });
 
 //ImageSectionController
 Route::controller(ImageSectionController::class)->group(function (){

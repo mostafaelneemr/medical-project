@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('main_section', function (Blueprint $table) {
             $table->id();
             $table->string('title',200);
-            $table->string('subtitle',);
+            $table->string('subtitle');
+            $table->string('description');
             $table->string('image');
-            $table->string('title_details',);
             $table->string('button');
             $table->timestamps();
         });

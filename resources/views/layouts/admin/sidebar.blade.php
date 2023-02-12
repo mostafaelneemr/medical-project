@@ -4,7 +4,7 @@
      <ul class="nav navbar-nav side-menu" id="sidebarnav">
        <!-- menu item Dashboard-->
        <li>
-         <a href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard">
+         <a href="{{ route('dashboard') }}" data-toggle="collapse" data-target="#dashboard">
            <div class="pull-left"><i  class="ti-home"></i><span class="right-nav-text">Dashboard</span></div>
            <div class="pull-right"> </div><div class="clearfix"></div>
          </a>
@@ -13,7 +13,7 @@
          </ul>
        </li>
        <!-- menu title -->
-        <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Components </li>
+        <li class="mt-10 mb-10 text-muted pl-4 font-medium menu-title">Components</li>
        <!-- menu item Elements-->
        <li>
          <a href="javascript:void(0);" data-toggle="collapse" data-target="#elements">
@@ -21,14 +21,14 @@
            <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
          </a>
          <ul id="elements" class="collapse" data-parent="#sidebarnav">
-           <li><a href="{{url('slider')}}">Slider Section</a></li>
-             <li><a href="{{url('main')}}">Main Section</a></li>
-             <li><a href="{{url('interior')}}">Interior Section</a></li>
-             <li><a href="{{url('image')}}">Image Section</a></li>
-             <li><a href="{{url('product')}}">Products Section</a></li>
-             <li><a href="{{url('customer')}}">Customers Section</a></li>
-             <li><a href="{{url('ourClient')}}">OurClients Section</a></li>
-             <li><a href="{{url('newUpdate')}}">NewUpdate Section</a></li>
+          <li><a href="{{route('slider.index')}}">Slider Section</a></li>
+          <li><a href="{{route('main-section.index')}}">Main Section</a></li>
+          <li><a href="{{route('interior_Section.index')}}">Interior Section</a></li>
+          {{-- <li><a href="{{route('image')}}">Image Section</a></li> --}}
+          {{-- <li><a href="{{route('product')}}">Products Section</a></li> --}}
+          {{-- <li><a href="{{route('customer')}}">Customers Section</a></li> --}}
+          {{-- <li><a href="{{route('ourClient')}}">OurClients Section</a></li> --}}
+          {{-- <li><a href="{{route('newUpdate')}}">NewUpdate Section</a></li> --}}
          </ul>
        </li>
        <!-- menu item calendar-->

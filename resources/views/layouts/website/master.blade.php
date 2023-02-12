@@ -198,24 +198,7 @@
 
         <!-- Start Toolbar -->
         <div class="demo-option-container">
-            <!-- Start Toolbar -->
-            <div class="brook__toolbar">
-                <div class="inner">
-                    <a class="quick-option hint--bounce hint--left hint--black primary-color-hover-important" href="#"
-                        aria-label="Quick Options">
-                        <i class="fa fa-wrench"></i>
-                    </a>
-                    <a class="hint--bounce hint--left hint--black primary-color-hover-important" target="_blank" href="https://hasthemes.com/contact-us/"
-                        aria-label="Support Center">
-                        <i class="fa fa-life-ring"></i>
-                    </a>
-                    <a class="hint--bounce hint--left hint--black primary-color-hover-important" target="_blank" href="https://themeforest.net/item/brook-creative-agency-business-html-template/24226512?s_rank=5"
-                        aria-label="Purchase Brook">
-                        <i class="fa fa-shopping-cart"></i>
-                    </a>
-                </div>
-            </div>
-            <!-- End Toolbar -->
+
             <!-- Start Quick Link -->
             <div class="demo-option-wrapper">
                 <div class="demo-panel-header">
@@ -372,8 +355,14 @@
                             data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
                             data-param10="" data-description="">
                             <!-- MAIN IMAGE -->
-                            <img src="{{$slider->image_url}}" alt="" data-bgposition="center center"
+                            {{-- @if($section->image_url) --}}
+                                <img src="{{$slider->image_url}}" alt="" data-bgposition="center center"
                                 data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                            {{-- @else --}}
+                                {{-- <img src="{{ asset('website/img/slider/presentation/home-presentation-image-01.jpg') }}" alt="" data-bgposition="center center"
+                                data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                            @endif --}}
+
                             <!-- LAYERS -->
 
                             <!-- LAYER NR. 2 -->
@@ -396,82 +385,11 @@
                                 data-responsive="off" data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(255,255,255);bg:rgb(34,34,34);transform:translateY(-3px);"}]'
                                 data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                                 data-paddingright="[20,20,20,20]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[20,20,20,20]"
-                                style="z-index: 7; min-width: 160px; max-width: 160px; max-width: 55px; max-width: 55px; white-space: normal; font-size: 16px; line-height: 55px; font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">Hire Us</a>
+                                style="z-index: 7; min-width: 160px; max-width: 160px; max-width: 55px; max-width: 55px; white-space: normal; font-size: 16px; line-height: 55px; font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">
+                                {{$slider->button}}</a>
                         </li>
 
                         @endforeach
-
-                        <!-- SLIDE  -->
-                        {{-- <li data-index="rs-17" data-transition="incube,incube-horizontal,turnoff-vertical,turnoff"
-                            data-slotamount="default,default,default,default" data-hideafterloop="0"
-                            data-hideslideonmobile="off" data-easein="default,default,default,default" data-easeout="default,default,default,default"
-                            data-masterspeed="default,default,default,default" data-thumb="img/revoulation/100x50_slider-authentic-studio-slide-02-bg.jpg"
-                            data-rotate="0,0,0,0" data-saveperformance="off" data-title="Slide" data-param1="02"
-                            data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7=""
-                            data-param8="" data-param9="" data-param10="" data-description="">
-                            <!-- MAIN IMAGE -->
-                            <img src="{{asset('website/img/interior/slider2.jpg')}}" alt="" data-bgposition="center center"
-                                data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                            <!-- LAYERS -->
-
-                            <!-- LAYER NR. 5 -->
-                            <div class="tp-caption   tp-resizeme" id="slide-17-layer-1" data-x="['center','center','center','center']"
-                                data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                                data-voffset="['-25','-28','-28','-10']" data-fontsize="['80','60','45','30']"
-                                data-lineheight="['90','67','50','34']" data-width="['630','630','620','380']"
-                                data-height="['none','135','none','none']" data-whitespace="normal" data-type="text"
-                                data-responsive_offset="on" data-frames='[{"delay":700,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                                data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
-                                data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                                style="z-index: 6; min-width: 1180px; max-width: 1180px; white-space: normal; font-size: 80px; line-height: 90px; font-weight: 700; color: #ffffff; letter-spacing: 0px;">comfortable, style
-                                & perfect </div>
-
-                            <!-- LAYER NR. 6 -->
-                            <a class="tp-caption rev-btn   smooth-scroll-link" href="#section-about" target="_self" id="slide-17-layer-24"
-                                data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                                data-voffset="['140','140','140','100']" data-width="160" data-height="55"
-                                data-whitespace="normal" data-type="button" data-actions='' data-responsive_offset="on"
-                                data-responsive="off" data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(255,255,255);bg:rgb(34,34,34);transform:translateY(-3px);"}]'
-                                data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
-                                data-paddingright="[20,20,20,20]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[20,20,20,20]"
-                                style="z-index: 7; min-width: 160px; max-width: 160px; max-width: 55px; max-width: 55px; white-space: normal; font-size: 16px; line-height: 55px; font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">Hire Us </a>
-                        </li> --}}
-                        <!-- SLIDE  -->
-                        {{-- <li data-index="rs-18" data-transition="cube,cube-horizontal,incube,incube-horizontal"
-                            data-slotamount="default,default,default,default" data-hideafterloop="0"
-                            data-hideslideonmobile="off" data-easein="default,default,default,default" data-easeout="default,default,default,default"
-                            data-masterspeed="default,default,default,default" data-thumb="img/revoulation/100x50_slider-authentic-studio-slide-03-bg.jpg"
-                            data-rotate="0,0,0,0" data-saveperformance="off" data-title="Slide" data-param1="03"
-                            data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7=""
-                            data-param8="" data-param9="" data-param10="" data-description="">
-                            <!-- MAIN IMAGE -->
-                            <img src="{{asset('website/img/interior/slider3.jpg')}}" alt="" data-bgposition="center center"
-                                data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                            <!-- LAYERS -->
-
-                            <!-- LAYER NR. 8 -->
-                            <div class="tp-caption   tp-resizeme" id="slide-18-layer-1" data-x="['center','center','center','center']"
-                                data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                                data-voffset="['-25','-28','-28','-10']" data-fontsize="['80','60','45','30']"
-                                data-lineheight="['90','67','50','34']" data-width="['630','630','620','380']"
-                                data-height="['none','135','none','none']" data-whitespace="normal" data-type="text"
-                                data-responsive_offset="on" data-frames='[{"delay":700,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                                data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
-                                data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                                style="z-index: 6; min-width: 1180px; max-width: 1180px; white-space: normal; font-size: 80px; line-height: 90px; font-weight: 700; color: #ffffff; letter-spacing: 0px;">comfortable, style
-                                & perfect </div>
-
-                            <!-- LAYER NR. 9 -->
-                            <a class="tp-caption rev-btn   smooth-scroll-link" href="#section-about" target="_self" id="slide-18-layer-24"
-                                data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
-                                data-voffset="['140','140','140','100']" data-width="160" data-height="55"
-                                data-whitespace="normal" data-type="button" data-actions='' data-responsive_offset="on"
-                                data-responsive="off" data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(255,255,255);bg:rgb(34,34,34);transform:translateY(-3px);"}]'
-                                data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
-                                data-paddingright="[20,20,20,20]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[20,20,20,20]"
-                                style="z-index: 7; min-width: 160px; max-width: 160px; max-width: 55px; max-width: 55px; white-space: normal; font-size: 16px; line-height: 55px; font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">Hire Us</a>
-                        </li> --}}
-                    </ul>
                     <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
                 </div>
             </div>

@@ -10,9 +10,7 @@
     <div class="row">
         <div class="col-md-12 ">
 
-            @if(session('message'))
-                <div class="alert alert-success">{{session('message')}}</div>
-            @endif
+            @include('admin.message')
 
             <div class="card">
                 <div class="card-header">
@@ -26,29 +24,27 @@
 
                     <table class="table table-bordered table-striped">
                         <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Title</th>
-                            <th>Image</th>
-                            <th>subtitle</th>
-                            <th>Button</th>
-                            <th>Publish</th>
-                            <th>Action</th>
-                        </tr>
+                            <tr>
+                                <th>#</th>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Button</th>
+                                <th>Publish</th>
+                                <th>Action</th>
+                            </tr>
                         </thead>
 
                         <tbody>     
                         @foreach($sliders as $slider)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td>{{$slider->title}}</td>
                                 <td><img src="{{asset($slider->image_url)}}" style="width: 150px; height: 100px" alt=""></td>
-                                <td>{{$slider->sub_title}}</td>
+                                <td>{{$slider->title}}</td>
                                 <td>{{$slider->button}}</td>
                                <td class={{$slider->publish == 1 ? 'text-success':'text-danger'}}>{{$slider->publish == 1 ? 'published' : 'draft'}}</td>
                                 <td>
                                     <a href="{{route('slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('slider.destroy', $slider->id)}}" class="btn btn-danger btn-sm" title="Delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('slider.destroy', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                 </td>
                             </tr>
                         @endforeach

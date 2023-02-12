@@ -1,7 +1,7 @@
 @extends('layouts.website.master')
 
 @section('title')
-    new page
+    {{__('website/title.homepage')}}
 @endsection
 
 @section('content')
@@ -9,27 +9,30 @@
 <!-- Start About Area -->
 <div class="brook-about-area bg_color--1 ptb--120 ptb-md--80 ptb-sm--60">
     <div class="container">
+        @foreach ($main_sections as  $section)
+
         <div class="row align-items-center">
             <div class="col-lg-6 col-md-12">
                 <div class="about-thumb text-center text-lg-end pr--100 pr_md--15 pr_sm--15">
-                    <img src="{{asset('website/img/interior/about.png')}}" alt="Multipurpose">
+                        <img src="{{ $section->image }}" alt="Multipurpose">
                 </div>
             </div>
             <div class="col-lg-6 col-md-12">
+                    
                 <div class="about-inner authenthick-about mt_md--40 mt_sm--40">
-                    <h6 class="heading headin-h6 body-color wow move-up">Our story</h6>
+                    <h6 class="heading headin-h6 body-color wow move-up">{{ $section->title }}</h6>
                     <div class="bkseparator--30"></div>
-                    <h3 class="heading heading-h3 line-height-1-25">We designed your space <br> for relaxing. </h3>
+                    <h3 class="heading heading-h3 line-height-1-25">{{ $section->subtitle }}</h3>
 
                     <div class="bkseparator--40"></div>
-                    <p class="bk_pra font-18">Lorem ipsum dolor sit amet, consecrator advising elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+                    <p class="bk_pra font-18">{{ $section->description }}</p>
                     <div class="bkseparator--65"></div>
-
-                    <a class="moredetails-btn" href="#"><span>More details</span> <i class="fa fa-arrow-right"></i></a>
-
+                    
+                    <a class="moredetails-btn" href="#"><span>{{ $section->button }}</span> <i class="fa fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
+        @endforeach
     </div>
 </div>
 <!-- End About Area -->

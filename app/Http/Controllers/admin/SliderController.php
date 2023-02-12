@@ -31,12 +31,11 @@ class SliderController extends Controller
         try{
             $image = $request->file('image_url');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(1920, 1000)->save('upload/sliders/' . $name_gen);
-            $save_url = 'upload/sliders/' . $name_gen;
+            Image::make($image)->resize(1920, 1000)->save('upload/homepage/' . $name_gen);
+            $save_url = 'upload/homepage/' . $name_gen;
 
             Slider::create([
                 'title' => ['ar' => $request->title_ar, 'en' => $request->title], 
-                'sub_title' => ['ar' => $request->sub_title_ar, 'en' => $request->sub_title], 
                 'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
                 'publish' => 1,
                 'slider_type' => static::SLIDER_TYPE,
@@ -49,12 +48,8 @@ class SliderController extends Controller
             );
             return redirect()->route('slider.index')->with($notification);
         }catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
         }
-    }
-    
-    public function show($id){
-        dd($id);
     }
 
    // Function Edit//
@@ -75,16 +70,15 @@ class SliderController extends Controller
                 unlink($old_image);
                 $image = $request->file('image_url');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(1920,1000)->save('upload/sliders/'.$name_gen);
-                $save_url = 'upload/sliders/'.$name_gen;
+                Image::make($image)->resize(1920,1000)->save('upload/homepage/'.$name_gen);
+                $save_url = 'upload/homepage/'.$name_gen;
+                slider::findOrFail($id)->update(['image_url' => $save_url]);
             }
 
             Slider::findOrFail($id)->update([
                 'title' => ['ar' => $request->title_ar, 'en' => $request->title], 
-                'sub_title' => ['ar' => $request->sub_title_ar, 'en' => $request->sub_title], 
                 'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
                 'publish' => $request->publish,
-                // 'image_url' => $save_url,
             ]);
 
             $notification = array(
@@ -93,15 +87,24 @@ class SliderController extends Controller
             );
             return redirect()->route('slider.index')->with($notification);
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
         }
     }
 
-    // Function Destroy//
-   public function destroy($id){
+    public function show($id){
+        $slider = Slider::findOrFail($id);
+        $img = $slider->image_url;
+        unlink($img);
 
-       // half time from 9.30 to 10
-   }
+        Slider::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'delete slider success',
+            'alert-type' => 'error',
+        );
+
+        return redirect()->back()->with($notification);
+    }
 
 }
 

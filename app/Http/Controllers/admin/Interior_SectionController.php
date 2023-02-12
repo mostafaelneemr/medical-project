@@ -11,8 +11,8 @@ class Interior_SectionController extends Controller
 {
 
     public function index(){
-        $interior_section = Interior_Section::all();
-        return view('admin.homepage.interior-section.index', compact('interior_section'));
+        $interiors = Interior_Section::all();
+        return view('admin.homepage.interior-section.index', compact('interiors'));
     }
 
     public function create(){
@@ -20,33 +20,25 @@ class Interior_SectionController extends Controller
         return view('admin.homepage.interior-section.create');
     }
 
-    public function store(Interior_SectionRequest $request){
+    public function store(Request $request){
+        try{
+            Interior_Section::create([
+                'title' => ['ar' => $request->title_ar, 'en' => $request->title], 
+                'subtitle' => ['ar' => $request->subtitle_ar, 'en' => $request->subtitle], 
+                'interior_title' => ['ar' => $request->interior_title_ar, 'en' => $request->interior_title], 
+                'description' => ['ar' => $request->description_ar, 'en' => $request->description], 
+                'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
+                // 'icon' => $request->icon, 
+            ]);
 
-        $fil_name  = $this->saveImage($request->image, 'backend/images/interior');
+            $notification = array(
+                'message' => 'Interior Inserted Successfully',
+                'alert-type' => 'success',
+            );
+            return redirect()->route('interior_Section.index')->with($notification);
+        } catch(\Exception $e) {
 
-        Interior_Section::create([
-            'title_ar' => $request->title_ar,
-            'title_en' => $request->title_en,
-            'subtitle_ar' => $request->subtitle_ar,
-            'subtitle_en' => $request->subtitle_en,
-            'image' => $fil_name,
-            'interior_title_ar' => $request->interior_title_ar,
-            'interior_title_en' => $request->interior_title_en,
-            'description_ar' => $request->description_ar,
-            'description_en' => $request->description_en,
-            'button_ar' => $request->button_ar,
-            'button_en' => $request->button_en
-        ]);
-
-        return redirect()->route('interior.index');
-    }
-
-    protected function saveImage($image, $folder){
-        $file_extension = $image->getClientOriginalExtension();
-        $fil_name = time().'.'.$file_extension;
-        $path = $folder;
-        $image->move($path,$fil_name);
-        return $fil_name;
+        }
     }
 
     public function edit($id){

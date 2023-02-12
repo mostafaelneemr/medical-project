@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('title')
-    create slider
+    Add slider
 @endsection
 
 @section('content')
@@ -19,7 +19,7 @@
     </div>
 </div>
 
-{{-- @include('admin.message') --}}
+@include('admin.message')
 
 <!-- main body -->
 <div class="row">
@@ -54,24 +54,6 @@
                                 <label>title ar</label>
                                 <input type="text" name="title_ar" class="form-control @error('title_ar') is-invalid @enderror" value="{{ old('title_ar') }}" required>
                                 @error('title_ar')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-6">
-                                <label>sub title en</label>
-                                <input type="text" name="sub_title" class="form-control @error('sub_title') is-invalid @enderror" value="{{ old('sub_title') }}" required>
-                                @error('sub_title')
-                                <div class="alert alert-danger">{{ $message }}</div>
-                                @enderror
-                            </div>
-
-                            <div class="form-group col-md-6">
-                                <label>sub title en</label>
-                                <input type="text" name="sub_title_ar" class="form-control @error('sub_title_ar') is-invalid @enderror" value="{{ old('sub_title_ar') }}" required>
-                                @error('sub_title_ar')
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>

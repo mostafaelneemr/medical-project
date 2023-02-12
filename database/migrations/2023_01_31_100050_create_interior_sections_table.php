@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('interior_sections', function (Blueprint $table) {
             $table->id();
             $table->string('title',200);
-            $table->string('subtitle',);
-            $table->string('image');
+            $table->string('subtitle');
+            $table->string('icon')->nullable();
             $table->string('interior_title');
             $table->string('description');
             $table->string('button');

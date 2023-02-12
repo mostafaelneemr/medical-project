@@ -1,100 +1,131 @@
-
 @extends('layouts.admin.master')
 
-
 @section('title')
-    Interior  section
+    Add Interior section
 @endsection
 
 @section('content')
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3> Interior  Section
-                        <a href="{{url('interior')}}" class="btn btn-danger text-white float-start ml-3">
-                            BACK
-
-                        </a>
-                    </h3>
-
+                    <h3>Interior  Section</h3>
                 </div>
 
                 <div class="card-body">
 
-                    @if($errors->any())
-                        <div class="alert alert-warning">
+                    @include('admin.message')
 
-                            @foreach($errors->all() as $error)
-                                <div>{{$error}}</div>
-                            @endforeach
-                        </div>
-                    @endif
+                    <form action="{{route('interior_Section.store')}}" method="POST">
+                    @csrf
 
-                    <form action="{{url('interior/store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
+                    <div class="form-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>title en</label>
+                                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" required>
+                                @error('title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                        <div class="mb-3">
-                            <label>Title_ar</label>
-                            <input type="text" name="title_ar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Title_en</label>
-                            <input type="text" name="title_en" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Subtitle_ar</label>
-                            <input type="text" name="subtitle_ar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                            <div class="form-group col-md-6">
+                                <label>title ar</label>
+                                <input type="text" name="title_ar" class="form-control @error('title_ar') is-invalid @enderror" value="{{ old('title_ar') }}" required>
+                                @error('title_ar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label>Subtitle_en</label>
-                            <input type="text" name="subtitle_en" class="form-control" id="exampleInputPassword1">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>sub title en</label>
+                                <input type="text" name="subtitle" class="form-control @error('subtitle') is-invalid @enderror" value="{{ old('subtitle') }}" required>
+                                @error('subtitle')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>sub title ar</label>
+                                <input type="text" name="subtitle_ar" class="form-control @error('subtitle_ar') is-invalid @enderror" value="{{ old('subtitle_ar') }}" required>
+                                @error('subtitle_ar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label>Interior_title_ar</label>
-                            <input type="text" name="interior_title_ar" class="form-control" id="exampleInputPassword1">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>interior title en</label>
+                                <input type="text" name="interior_title" class="form-control @error('interior_title') is-invalid @enderror" value="{{ old('interior_title') }}" required>
+                                @error('interior_title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>interior title ar</label>
+                                <input type="text" name="interior_title_ar" class="form-control @error('interior_title_ar') is-invalid @enderror" value="{{ old('interior_title_ar') }}" required>
+                                @error('interior_title_ar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>description en</label>
+                                <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{ old('description') }}" required>
+                                @error('description')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                        <div class="mb-3">
-                            <label>Interior_title_en</label>
-                            <input type="text" name="interior_title_en" class="form-control" id="exampleInputPassword1">
+                            <div class="form-group col-md-6">
+                                <label>description ar</label>
+                                <input type="text" name="description_ar" class="form-control @error('description_ar') is-invalid @enderror" value="{{ old('description_ar') }}" required>
+                                @error('description_ar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label>Description_ar</label>
-                            <input type="text" name="description_ar" class="form-control" id="exampleInputPassword1">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>button en</label>
+                                <input type="text" name="button" class="form-control @error('button') is-invalid @enderror" value="{{ old('button') }}" required>
+                                @error('button')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label>button_ar</label>
+                                <input type="text" name="button_ar" class="form-control @error('button_ar') is-invalid @enderror" value="{{ old('button_ar') }}" required>
+                                @error('button_ar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label>Description_en</label>
-                            <input type="text" name="description_en" class="form-control" id="exampleInputPassword1">
+                        <div class="form-row">
+                            <div class="form-group col-md-12">
+                                <label>Icon</label>
+                                <input type="text" name="icon" class="form-control @error('icon') is-invalid @enderror" value="{{ old('icon') }}">
+                                @error('icon')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
+                    </div>
 
-                        <div class="mb-3">
-                            <label>Button_ar</label>
-                            <input type="text" name="button_ar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Button_en</label>
-                            <input type="text" name="button_en" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label>Image</label>
-                            <input  type="file" name="image" class="form-control" id="image">
-                        </div>
-
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-warning mr-1" onclick="history.back();"><i class="ft-x"></i>back</button>
+                        <button type="submit" class="btn btn-success"><i class="la la-check-square-o"></i>save</button>
+                    </div>
 
                     </form>
 
@@ -103,12 +134,6 @@
         </div>
 
     </div>
-
-
-
-
-
-
 @endsection
 
 
