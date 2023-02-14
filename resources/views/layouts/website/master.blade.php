@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="zxx">
+<html class="no-js" lang="zxx" dir="{{App::getlocale() == 'en' ? '':'rtl'}}" >
 
 <head>    
     @include('layouts.website.style')
@@ -350,7 +350,7 @@
                         <li data-index="rs-16" data-transition="curtain-1,curtain-3,curtain-2" data-slotamount="default,default,default,default"
                             data-hideafterloop="0" data-hideslideonmobile="off" data-randomtransition="on" data-easein="default,default,default,default"
                             data-easeout="default,default,default,default" data-masterspeed="default,default,default,default"
-                            data-thumb="img/revoulation/100x50_slider-authentic-studio-slide-01-bg.jpg" data-rotate="0,0,0,0"
+                            data-thumb="{{asset('website/img/revoulation/100x50_slider-authentic-studio-slide-01-bg.jpg')}}" data-rotate="0,0,0,0"
                             data-saveperformance="off" data-title="Slide" data-param1="01" data-param2="" data-param3=""
                             data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
                             data-param10="" data-description="">

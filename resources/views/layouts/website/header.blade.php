@@ -7,12 +7,13 @@
                 <!-- Header Left -->
                 <div class="header-left">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="{{route('home')}}">
                             <img src="{{asset('website/img/logo/brook-white.png')}}" alt="Brook Images">
                         </a>
                     </div>
                 </div>
                 <!-- Mainmenu Wrap -->
+                
                 <!-- Header Right -->
                 <div class="header-right">
                     <!-- Start Popup Search Wrap -->
@@ -20,6 +21,25 @@
                         <a class="btn-search-click" href="#">
                             <i class="fa fa-search"></i>
                         </a>
+                    </div>
+
+                    <div class="btn-group mb-1">
+                        <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                            @if (App::getLocale() == 'ar')
+                                {{ LaravelLocalization::getCurrentLocaleName() }}
+                                <img src="{{ URL::asset('backend/assets/images/flags/EG.png') }}" alt="">
+                            @else
+                                {{ LaravelLocalization::getCurrentLocaleName() }}
+                                <img src="{{ URL::asset('backend/assets/images/flags/US.png') }}" alt="">
+                            @endif
+                        </button>
+                        <div class="dropdown-menu">
+                            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                                <a class="dropdown-item" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                            @endforeach
+                        </div>
                     </div>
                     <!-- End Popup Search Wrap -->
 

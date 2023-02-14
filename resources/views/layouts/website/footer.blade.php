@@ -9,7 +9,7 @@
                             <div class="footer-widget text-var--2">
                                 <div class="logo">
                                     <a href="index.html">
-                                        <img src="img/logo/brook-white2.png" alt="brook white">
+                                        <img src="{{asset('website/img/logo/brook-white2.png')}}" alt="brook white">
                                     </a>
                                 </div>
                                 <div class="footer-inner">
@@ -44,9 +44,9 @@
                                         <p><a href="#">(+68) 120034509</a></p>
                                     </div>
                                     <div class="social-share social--transparent text-white">
-                                        <a href="#"><i class="fab fa-facebook"></i></a>
+                                        <a href="{{setting('Facebook')}}" target="_blank"><i class="fab fa-facebook"></i></a>
                                         <a href="#"><i class="fab fa-twitter"></i></a>
-                                        <a href="#"><i class="fab fa-instagram"></i></a>
+                                        <a href="{{setting('Instagram')}}" target="_blank"><i class="fab fa-instagram"></i></a>
                                         <a href="#"><i class="fab fa-dribbble"></i></a>
                                         <a href="#"><i class="fab fa-pinterest"></i></a>
                                     </div>
