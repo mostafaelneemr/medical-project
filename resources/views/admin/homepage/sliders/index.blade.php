@@ -41,7 +41,7 @@
                                 <td><img src="{{asset($slider->image_url)}}" style="width: 150px; height: 100px" alt=""></td>
                                 <td>{{$slider->title}}</td>
                                 <td>{{$slider->button}}</td>
-                               <td class={{$slider->publish == 1 ? 'text-success':'text-danger'}}>{{$slider->publish == 1 ? 'published' : 'draft'}}</td>
+                                <td class={{$slider->publish == 1 ? 'text-success':'text-danger'}}>{{$slider->publish == 1 ? 'published' : 'draft'}}</td>
                                 <td>
                                     <a href="{{route('slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                     <a href="{{route('slider.destroy', $slider->id)}}" class="btn btn-danger btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>

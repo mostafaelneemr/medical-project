@@ -36,7 +36,7 @@
                             <input type="hidden" name="id" value="{{ $interiors->id }}" />
 
                             <div class="form-body">
-                                <div class="form-row">
+                                {{-- <div class="form-row">
                                     <div class="form-group col-md-6">
                                         <label>title en</label>
                                         <input type="text" name="head" class="form-control @error('head') is-invalid @enderror" value="{{ $interiors->getTranslation('head' , 'en') }}" required>
@@ -70,7 +70,7 @@
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
+                                </div> --}}
     
                                 <div class="form-row">
                                     <div class="form-group col-md-6">
@@ -134,18 +134,6 @@
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group col-md-12">
-                                    <label>publish / draft</label>
-                                    <select name="publish" class="select2 form-control">
-                                        <optgroup label="choose publish ablut post">
-                                            <option value=1>publish</option>
-                                            <option value=0>draft</option>
-                                        </optgroup>
-                                    </select>
                                 </div>
                             </div>
     

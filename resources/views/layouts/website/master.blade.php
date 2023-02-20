@@ -378,19 +378,19 @@
                                 {{$slider->title}}</div>
 
                             <!-- LAYER NR. 3 -->
-                            <a class="tp-caption rev-btn   smooth-scroll-link" href="#section-about" target="_self" id="slide-16-layer-24"
+                            <a class="tp-caption rev-btn  smooth-scroll-link" href="#section-about" target="_self" id="slide-16-layer-24"
                                 data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
                                 data-voffset="['140','140','140','100']" data-width="160" data-height="55"
                                 data-whitespace="normal" data-type="button" data-actions='' data-responsive_offset="on"
                                 data-responsive="off" data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(255,255,255);bg:rgb(34,34,34);transform:translateY(-3px);"}]'
                                 data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
                                 data-paddingright="[20,20,20,20]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[20,20,20,20]"
-                                style="z-index: 7; min-width: 160px; max-width: 160px; max-width: 55px; max-width: 55px; white-space: normal; font-size: 16px; line-height: 55px; font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">
+                                style="z-index: 7; min-width: 160px;overflow:hidden; white-space: normal; font-size: 16px;font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">
                                 {{$slider->button}}</a>
                         </li>
 
                         @endforeach
-                    <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
+                    {{-- <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div> --}}
                 </div>
             </div>
             <!-- END REVOLUTION SLIDER -->

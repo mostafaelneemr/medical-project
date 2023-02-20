@@ -69,8 +69,8 @@
                 </div>
             </div>
             <!-- End Single Service -->
+            @endforeach
         </div>
-        @endforeach
     </div>
 </div>
 <!-- End Service Area -->
@@ -78,13 +78,13 @@
 <!-- Start Portfolio Area -->
 <div class="bk-portfolio-area">
     <div class="portfolio-wrapper">
-        <div class="row row--0">
+        <div class="row ">
             <!-- End Single Portfolio -->
-            <div class="col-lg-12 col-xl-6 col-12">
-                <div class="row row--0">
-                    <div class="col-lg-6">
+            {{-- <div class="col-lg-12 col-xl-6 col-12">
+                <div class="row row--0"> --}}
+                    @foreach ($images as $image)                            
+                    <div class="col-lg-3">
                         <!-- Start Single Portfolio -->
-                        @foreach ($images as $image)                            
                         <div class="portfolio-cation wow move-up">
                             <div class="thumb">
                                 <img src="{{ $image->image}}" alt="Portfolio Images">
@@ -97,10 +97,10 @@
                             </div>
                         </div>
                         <!-- End Single Portfolio -->
-                        @endforeach
+                        {{-- </div>
+                        </div> --}}
                     </div>
-                </div>
-            </div>
+                    @endforeach
         </div>
     </div>
 </div>

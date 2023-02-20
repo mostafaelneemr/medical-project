@@ -86,7 +86,7 @@ class Main_SectionController extends Controller
     public function show($id){
         $slider = Main_Section::findOrFail($id);
         $img = $slider->image;
-        unlink($img);
+        @unlink($img);
 
         Main_Section::findOrFail($id)->delete();
 

@@ -25,6 +25,7 @@
                             <th>Image</th>
                             <th>Title</th>
                             <th>button</th>
+                            <th>publish</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -36,6 +37,7 @@
                                 <td><img src="{{$section->image}}" style="width: 100px; height: 100px" alt=""></td>
                                 <td>{{$section->title}}</td>
                                 <td>{{$section->button}}</td>
+                                <td class={{$section->publish == 1 ? 'text-success':'text-danger'}}>{{$section->publish == 1 ? 'published' : 'draft'}}</td>
                                 <td>
                                     <a href="{{route('images.edit',$section->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
                                     <a href="{{route('images.destroy',$section->id)}}" class="btn btn-danger btn-sm" title="Delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>

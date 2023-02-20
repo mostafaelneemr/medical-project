@@ -81,9 +81,18 @@ class ProductController extends Controller
         }
     }
 
-    public function destroy($id){
+    public function show($id){
+        $products = Product::findOrFail($id);
+        $img = $products->image;
+        @unlink($img);
 
-       Product::findorfail($id)->delete();
-        return redirect()->route('product.index');
+        Product::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Product Section Deleted is Success',
+            'alert-type' => 'error',
+        );
+
+        return redirect::back()->with($notification);
     }
 }

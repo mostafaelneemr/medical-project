@@ -22,8 +22,8 @@ class Interior_SectionController extends Controller
     public function store(Request $request){
         try{
             Interior_Section::create([
-                'head' => ['ar' => $request->head_ar, 'en' => $request->head], 
-                'sub_head' => ['ar' => $request->sub_head_ar, 'en' => $request->sub_head], 
+                // 'head' => ['ar' => $request->head_ar, 'en' => $request->head], 
+                // 'sub_head' => ['ar' => $request->sub_head_ar, 'en' => $request->sub_head], 
                 'interior_title' => ['ar' => $request->interior_title_ar, 'en' => $request->interior_title], 
                 'description' => ['ar' => $request->description_ar, 'en' => $request->description], 
                 'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
@@ -50,8 +50,8 @@ class Interior_SectionController extends Controller
         try {
             $interiors = Interior_Section::findOrFail($id);
             $interiors->update([
-                'head' => ['ar' => $request->head_ar , 'en' => $request->head],
-                'sub_head' => ['ar' => $request->sub_head_ar, 'en' => $request->sub_head],
+                // 'head' => ['ar' => $request->head_ar , 'en' => $request->head],
+                // 'sub_head' => ['ar' => $request->sub_head_ar, 'en' => $request->sub_head],
                 'interior_title' => ['ar' => $request->interior_title, 'en' => $request->interior_title],
                 'description' => ['ar' => $request->description_ar, 'en' => $request->description],
                 'button' => ['ar' => $request->button, 'en' => $request->button],
@@ -69,7 +69,14 @@ class Interior_SectionController extends Controller
         }
     }
 
-    public function destroy($id){
-        return $id;
+    public function show($id){
+        Interior_Section::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Section Interior Deleted Success',
+            'alert-type' => 'error',
+        );
+
+        return redirect::back()->with($notification);
     }
 }

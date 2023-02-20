@@ -66,6 +66,7 @@ class ImageSectionController extends Controller
             Image_Section::findOrFail($id)->update([
                 'title' => ['en' => $request->title, 'ar' => $request->title_ar],
                 'button' => ['en' => $request->button, 'ar' => $request->button_ar],
+                'publish' => $request->publish
             ]);
 
             $notification = array(
@@ -79,8 +80,19 @@ class ImageSectionController extends Controller
         }
     }
 
-    public function destroy($id){
-        
+    public function show($id){
+        $images = Image_Section::findOrFail($id);
+        $img = $images->image;
+        @unlink($img);
+
+        Image_Section::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Deleted Image Is Success',
+            'alert-type' => 'error',
+        );
+
+        return redirect::back()->with($notification);
     }
 
 }

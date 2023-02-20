@@ -82,7 +82,18 @@ class CustomerController extends Controller
         }
     }
 
-    public function destroy($id){
+    public function show($id){
+        $customers = Customer::findOrFail($id);
+        $img = $customers->image;
+        @unlink($img);
 
+        Customer::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Customer Section Deleted is Success',
+            'alert-type' => 'error',
+        );
+
+        return redirect::back()->with($notification);
     }
 }

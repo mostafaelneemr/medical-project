@@ -81,9 +81,19 @@ class OurClientController extends Controller
         }
     }
 
-    public function destroy($id){
-        OurClient::findorfail($id)->delete();
-        return redirect()->route('ourClient.index');
+    public function show($id){
+        $client = OurClient::findOrFail($id);
+        $img = $client->image;
+        @unlink($img);
+
+        OurClient::findOrFail($id)->delete();
+
+        $notification = array(
+            'message' => 'Client Section is Deleted',
+            'alert-type' => 'error',
+        );
+
+        return redirect::back()->with($notification);
     }
 
 }

@@ -96,7 +96,7 @@ class SliderController extends Controller
     public function show($id){
         $slider = Slider::findOrFail($id);
         $img = $slider->image_url;
-        unlink($img);
+        @unlink($img);
 
         Slider::findOrFail($id)->delete();
 

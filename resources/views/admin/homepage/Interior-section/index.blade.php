@@ -22,8 +22,8 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Head</th>
-                                <th>Sub Head</th>
+                                {{-- <th>Head</th> --}}
+                                {{-- <th>Sub Head</th> --}}
                                 <th>Interior title</th>
                                 <th>description</th>
                                 <th>Button</th>
@@ -35,8 +35,8 @@
                         @foreach($interiors as $section)
                             <tr>
                                 <td>{{$loop->index +1}}</td>
-                                <td>{{$section->head}}</td>
-                                <td>{{$section->sub_head}}</td>
+                                {{-- <td>{{$section->head}}</td> --}}
+                                {{-- <td>{{$section->sub_head}}</td> --}}
                                 <th>{{$section->interior_title}}</th>
                                 <th>{{$section->description}}</th>
                                 <td>{{$section->button}}</td>

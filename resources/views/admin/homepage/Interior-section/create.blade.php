@@ -20,7 +20,7 @@
                     @csrf
 
                         <div class="form-body">
-                            <div class="form-row">
+                            {{-- <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>head en</label>
                                     <input type="text" name="head" class="form-control @error('head') is-invalid @enderror" value="{{ old('head') }}" required>
@@ -36,9 +36,9 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="form-row">
+                            {{-- <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <label>sub head en</label>
                                     <input type="text" name="sub_head" class="form-control @error('sub_head') is-invalid @enderror" value="{{ old('sub_head') }}" required>
@@ -54,7 +54,7 @@
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
