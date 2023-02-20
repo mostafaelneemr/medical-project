@@ -1,93 +1,82 @@
-
 @extends('layouts.admin.master')
 
-
 @section('title')
-    Products Section
+    Add Product
 @endsection
 
 @section('content')
-
+<div class="page-title">
     <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3> Products Section
-                        <a href="{{url('product')}}" class="btn btn-danger text-white float-start ml-3">
-                            BACK
+        <div class="col-sm-6">
+            <h4 class="mb-0">Create Product</h4>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
+                <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">dashboard</a></li>
+                <li class="breadcrumb-item active">create Product section</li>
+            </ol>
+        </div>
+    </div>
+</div>
 
-                        </a>
-                    </h3>
+@include('admin.message')
 
-                </div>
+<!-- main body -->
+<div class="row">
+    <div class="col-md-12 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <form class="form" action="{{route('products.store')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
 
-                <div class="card-body">
+                    <div class="form-group">
+                        <label> Product image</label>
+                        <label id="projectinput7" class="file center-block">
+                            <input type="file" id="file" name="image" required>
+                            <span class="file-custom"></span>
+                        </label>
+                        @error('image')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
 
-                    @if($errors->any())
-                        <div class="alert alert-warning">
+                    <div class="form-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>title en</label>
+                                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" required>
+                                @error('title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                            @foreach($errors->all() as $error)
-                                <div>{{$error}}</div>
-                            @endforeach
-                        </div>
-                    @endif
+                            <div class="form-group col-md-4">
+                                <label>title ar</label>
+                                <input type="text" name="title_ar" class="form-control @error('title_ar') is-invalid @enderror" value="{{ old('title_ar') }}" required>
+                                @error('title_ar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                    <form action="{{url('product/store')}}" method="POST" enctype="multipart/form-data">
-                        @csrf
-
-                        <div class="mb-3">
-                            <label>Title_ar</label>
-                            <input type="text" name="title_ar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Title_en</label>
-                            <input type="text" name="title_en" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Title_des_ar</label>
-                            <input type="text" name="title_des_ar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Title_des_en</label>
-                            <input type="text" name="title_des_en" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Price_ar</label>
-                            <input type="text" name="price_ar" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label>Price_en</label>
-                            <input type="text" name="price_en" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label>Image</label>
-                            <input  type="file" name="image" class="form-control" id="image">
+                            <div class="form-group col-md-4">
+                                <label>price</label>
+                                <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{ old('price') }}" required>
+                                @error('price')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
+                    </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
-
-                    </form>
-
-                </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-warning mr-1" onclick="history.back();"><i class="ft-x"></i>back</button>
+                        <button type="submit" class="btn btn-success"><i class="la la-check-square-o"></i>save</button>
+                    </div>
+                </form>
             </div>
         </div>
-
     </div>
-
-
-
-
-
-
+</div>
 @endsection
-
 

@@ -3,15 +3,14 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CustomerRequest;
 use App\Models\Customer;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Redirect;
 
 class CustomerController extends Controller
 {
-
     public function index(){
-
         $customers = Customer::all();
         return view('admin.homepage.customer.index', compact('customers'));
     }
@@ -21,61 +20,69 @@ class CustomerController extends Controller
         return view('admin.homepage.customer.create');
     }
 
-    public function store(CustomerRequest $request){
+    public function store(Request $request){
+        try {
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()). '.' .$image->getClientOriginalExtension();
+            Image::make($image)->resize(50,50)->save('upload/homepage/'.$name_gen);
+            $save_url = 'upload/homepage/'.$name_gen;
 
-        $fil_name  = $this->saveImage($request->image, 'backend/images/customer');
+            Customer::create([
+                'description' => ['en' =>$request->description, 'ar' => $request->description_ar],
+                'customer_name' => ['en' =>$request->customer_name, 'ar' => $request->customer_name_ar],
+                'title' => ['en' =>$request->title, 'ar' => $request->title_ar],
+                'image' => $save_url,
+            ]);
 
-        Customer::create([
-            'description_ar' =>$request->description_ar,
-            'description_en' =>$request->description_en,
-            'customer_name_ar' =>$request->customer_name_ar ,
-            'customer_name_en' =>$request->customer_name_en,
-            'image' =>$fil_name,
-            'title_ar' =>$request->title_ar,
-            'title_en' =>$request->title_en,
-            'button_ar' =>$request->button_ar,
-            'button_en' =>$request->button_en
-        ]);
+            $notification = array(
+                'message' => 'Add Customer Is Success',
+                'alert-type' => 'success',
+            );
 
-        return redirect()->route('customer.index');
+            return redirect::route('customers.index')->with($notification);
+        } catch (\Exception $e) {
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
-
-    protected function saveImage($image, $folder){
-        $file_extension = $image->getClientOriginalExtension();
-        $fil_name = time().'.'.$file_extension;
-        $path = $folder;
-        $image->move($path,$fil_name);
-        return $fil_name;
-    }
-
 
     public function edit($id){
-
         $customer = Customer::findorfail($id);
         return view('admin.homepage.customer.edit', compact('customer'));
     }
 
     public function update(Request $request, $id){
+        try {
+            $id = $request->id;
+            $old_image = $request->old_image;
 
-        $fil_name  = $this->saveImage($request->image, 'backend/images/customer');
-        $customer = Customer::findorfail($id);
+            if ($request->file('image')) {
+                @unlink($old_image);
+                $image = $request->file('image');
+                $name_gen = hexdec(uniqid($image)). '.' .$image->getClientOriginalExtension();
+                Image::make($image)->save('upload/homepage/'.$name_gen);
+                $save_url = 'upload/homepage/'.$name_gen;
+                Customer::findOrFail($id)->update([ 'image' => $save_url]);
+            }
 
-        $customer->update([
-            'description_ar' =>$request->description_ar,
-            'description_en' =>$request->description_en,
-            'customer_name_ar' =>$request->customer_name_ar ,
-            'customer_name_en' =>$request->customer_name_en,
-            'image' =>$fil_name,
-            'title_ar' =>$request->title_ar,
-            'title_en' =>$request->title_en,
-            'button_ar' =>$request->button_ar,
-            'button_en' =>$request->button_en
-        ]);
-        return redirect()->route('customer.index');
+            Customer::findOrFail($id)->update([
+                'description' => ['en' =>$request->description, 'ar' => $request->description_ar],
+                'customer_name' => ['en' =>$request->customer_name, 'ar' => $request->customer_name_ar],
+                'title' => ['en' =>$request->title, 'ar' => $request->title_ar],
+                'publish' => $request->publish,
+            ]);
+
+            $notification = array(
+                'message' => 'Update Customer Is Success',
+                'alert-type' => 'info',
+            );
+
+            return redirect::route('customers.index')->with($notification);
+        } catch (\Exception $e) {
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
 
     public function destroy($id){
-      Customer::findorfail($id)->delete();
-        return redirect()->route('customer.index');
+
     }
 }

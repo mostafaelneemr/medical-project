@@ -11,6 +11,6 @@ class Interior_Section extends Model
     use Hastranslations;
 
     protected $table = 'interior_sections';
-    public $translatable = ['title', 'subtitle', 'interior_title','description', 'button'];
+    public $translatable = ['head', 'sub_head', 'interior_title','description', 'button'];
     protected $guarded = [];
 }

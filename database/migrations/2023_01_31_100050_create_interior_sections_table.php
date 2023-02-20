@@ -15,12 +15,12 @@ return new class extends Migration
     {
         Schema::create('interior_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title',200);
-            $table->string('subtitle');
+            $table->string('head')->nullable();
+            $table->string('sub_head')->nullable();
             $table->string('icon')->nullable();
-            $table->string('interior_title');
-            $table->string('description');
-            $table->string('button');
+            $table->string('interior_title')->nullable();
+            $table->text('description')->nullable();
+            $table->string('button')->nullable();
             $table->timestamps();
         });
     }

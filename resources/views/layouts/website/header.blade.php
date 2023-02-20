@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="btn-group mb-1">
-                        <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
+                        <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                             @if (App::getLocale() == 'ar')
                                 {{ LaravelLocalization::getCurrentLocaleName() }}
                                 <img src="{{ URL::asset('backend/assets/images/flags/EG.png') }}" alt="">

@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->string('title',200);
             $table->string('subtitle');
-            $table->string('description');
+            $table->text('description');
             $table->string('image');
-            $table->string('button');
+            $table->string('button')->nullable();
+            $table->enum('publish', ['1','0'])->default('1');
             $table->timestamps();
         });
     }

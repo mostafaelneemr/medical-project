@@ -4,18 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class OurClient extends Model
 {
     use HasFactory;
+    use Hastranslations;
 
     protected $table = 'ourclients';
-
-    protected $fillable = [
-        'title_ar',
-        'title_en',
-        'image',
-        'company_name_ar',
-        'company_name_en'
-    ];
+    public $translatable = ['head','name','title_name'];
+    protected $guarded = [];
 }

@@ -1,105 +1,130 @@
-
 @extends('layouts.admin.master')
 
-
 @section('title')
-    Edit Section
+    Edit Customer
 @endsection
 
 @section('content')
-
+<div class="page-title">
     <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-header">
-                    <h3>   Edit
-                        <a href="{{url('customer')}}" class="btn btn-danger text-white float-start ml-3">
-                            BACK
+        <div class="col-sm-6">
+            <h4 class="mb-0">Edit Customer</h4>
+        </div>
+        <div class="col-sm-6">
+            <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
+                <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">dashboard</a></li>
+                <li class="breadcrumb-item active">edit Customer section</li>
+            </ol>
+        </div>
+    </div>
+</div>
 
-                        </a>
-                    </h3>
+@include('admin.message')
 
-                </div>
+<!-- main body -->
+<div class="row">
+    <div class="col-md-12 mb-30">
+        <div class="card card-statistics h-100">
+            <div class="card-body">
+                <form class="form" action="{{route('customers.update', $customer->id)}}" method="POST" enctype="multipart/form-data">
+                    @method('PUT')
+                    @csrf
 
-                <div class="card-body">
+                    <input type="hidden" name="id" value="{{$customer->id}}" /> 
+                    <input type="hidden" name="old_value" value="{{$customer->image}}" /> 
 
-                    @if($errors->any())
-                        <div class="alert alert-warning">
-
-                            @foreach($errors->all() as $error)
-                                <div>{{$error}}</div>
-                            @endforeach
+                    <div class="form-group">
+                        <div class="text-center">
+                            <img src="{{asset($customer->image)}}"
+                                class="rounded-circle  h-25 w-25" alt="image slider">
                         </div>
-                    @endif
+                    </div>
 
-                    <form action="{{url('customer/update'.$customer->id)}}" method="POST" enctype="multipart/form-data">
-                        @csrf
+                    <div class="form-group">
+                        <label> Customer image</label>
+                        <label id="projectinput7" class="file center-block">
+                            <input type="file" id="file" name="image">
+                            <span class="file-custom"></span>
+                        </label>
+                        @error('image')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
+                    </div>
 
-                        <div class="mb-3">
-                            <label>Description_ar</label>
-                            <input type="text" name="description_ar" value="{{$customer->description_ar}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
+                    <div class="form-body">
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>customer name en</label>
+                                <input type="text" name="customer_name" class="form-control @error('customer_name') is-invalid @enderror" value="{{ $customer->getTranslation('customer_name', 'en') }}" required>
+                                @error('customer_name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                        <div class="mb-3">
-                            <label>Description_en</label>
-                            <input type="text" name="description_en" value="{{$customer->description_en}}" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Customer_name_ar</label>
-                            <input type="text" name="customer_name_ar" value="{{$customer->customer_name_ar}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Customer_name_en</label>
-                            <input type="text" name="customer_name_en" value="{{$customer->customer_name_en}}" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Title_ar</label>
-                            <input type="text" name="title_ar" value="{{$customer->title_ar}}" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label>Title_en</label>
-                            <input type="text" name="title_en" value="{{$customer->title_en}}" class="form-control" id="exampleInputPassword1">
-                        </div>
-
-
-                        <div class="mb-3">
-                            <label>Button_ar</label>
-                            <input type="text" name="button_ar" value="{{$customer->button_ar}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        </div>
-
-                        <div class="mb-3">
-                            <label>Button_en</label>
-                            <input type="text" name="button_en" value="{{$customer->button_en}}" class="form-control" id="exampleInputPassword1">
+                            <div class="form-group col-md-6">
+                                <label>customer name ar</label>
+                                <input type="text" name="customer_name_ar" class="form-control @error('customer_name_ar') is-invalid @enderror" value="{{ $customer->getTranslation('customer_name', 'ar') }}" required>
+                                @error('customer_name_ar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>title en</label>
+                                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ $customer->getTranslation('title', 'en') }}" required>
+                                @error('title')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                        <div class="mb-3">
-                            <label>Image</label>
-                            <input  type="file" name="image" value="{{$customer->image}}" class="form-control" id="image">
+                            <div class="form-group col-md-6">
+                                <label>title ar</label>
+                                <input type="text" name="title_ar" class="form-control @error('title_ar') is-invalid @enderror" value="{{ $customer->getTranslation('title', 'ar') }}" required>
+                                @error('title_ar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
                         </div>
 
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label>description en</label>
+                                <input type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="{{ $customer->getTranslation('description', 'en') }}" required>
+                                @error('description')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                        <button type="submit" class="btn btn-primary">Update</button>
+                            <div class="form-group col-md-6">
+                                <label>description ar</label>
+                                <input type="text" name="description_ar" class="form-control @error('description_ar') is-invalid @enderror" value="{{ $customer->getTranslation('description', 'ar') }}" required>
+                                @error('description_ar')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+                            
+                        <div class="form-group col-md-12">
+                            <label>publish / draft</label>
+                            <select name="publish" class="select2 form-control">
+                                <optgroup label="choose publish ablut post">
+                                    <option value=1>publish</option>
+                                    <option value=0>draft</option>
+                                </optgroup>
+                            </select>
+                        </div>
+                    </div>
 
-                    </form>
-
-                </div>
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-warning mr-1" onclick="history.back();"><i class="ft-x"></i>back</button>
+                        <button type="submit" class="btn btn-success"><i class="la la-check-square-o"></i>save</button>
+                    </div>
+                </form>
             </div>
         </div>
-
     </div>
-
-
-
-
-
-
+</div>
 @endsection
-
-
 

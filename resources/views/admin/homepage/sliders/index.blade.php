@@ -15,13 +15,13 @@
             <div class="card">
                 <div class="card-header">
                     <h3> Slider List
-                        <a href="{{route('slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
+                        @if (\app\Models\Slider::where('slider_type' , 'home')->count() == 0)
+                            <a href="{{route('slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
+                        @endif
                     </h3>
-
                 </div>
 
                 <div class="card-body ">
-
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
@@ -44,13 +44,13 @@
                                <td class={{$slider->publish == 1 ? 'text-success':'text-danger'}}>{{$slider->publish == 1 ? 'published' : 'draft'}}</td>
                                 <td>
                                     <a href="{{route('slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('slider.destroy', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('slider.destroy', $slider->id)}}" class="btn btn-danger btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
+                        
                     </table>
-
                 </div>
             </div>
         </div>

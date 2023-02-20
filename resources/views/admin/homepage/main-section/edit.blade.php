@@ -1,21 +1,34 @@
 @extends('layouts.admin.master')
 
 @section('title')
-  edit main section
+  Edit Main Section
 @endsection
 
 @section('content')
+    <div class="page-title">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4 class="mb-0">Edit Main</h4>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right ">
+                    <li class="breadcrumb-item"><a href="{{route('dashboard')}}" class="default-color">dashboard</a></li>
+                    <li class="breadcrumb-item active">Edit Main Section</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    @include('admin.message')
+
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Edit Section</h3>
+                    <h3>Edit Main Section</h3>
                 </div>
 
                 <div class="card-body">
-
-                    @include('admin.message')
-
                     <form action="{{route('main-section.update',$main_section->id)}}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
@@ -72,7 +85,7 @@
     
                                 <div class="form-group col-md-6">
                                     <label>sub title ar</label>
-                                    <input type="text" name="subtitle_ar" value="{{$main_section->getTranslation('subtitle_ar', 'ar')}}" class="form-control @error('subtitle_ar') is-invalid @enderror" value="{{ old('subtitle_ar') }}" required>
+                                    <input type="text" name="subtitle_ar" value="{{$main_section->getTranslation('subtitle', 'ar')}}" class="form-control @error('subtitle_ar') is-invalid @enderror" value="{{ old('subtitle_ar') }}" required>
                                     @error('subtitle_ar')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                     @enderror
@@ -114,7 +127,18 @@
                                     @enderror
                                 </div>
                             </div>
-    
+
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label>publish / draft</label>
+                                    <select name="publish" class="select2 form-control">
+                                        <optgroup label="choose publish ablut post">
+                                            <option value=1>publish</option>
+                                            <option value=0>draft</option>
+                                        </optgroup>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
     
                         <div class="form-actions">

@@ -1,7 +1,10 @@
 @extends('layouts.admin.master')
 
-@section('content')
+@section('title')
+    settings
+@endsection
 
+@section('content')
 <div class="page-title">
     <div class="row">
         <div class="col-sm-6">

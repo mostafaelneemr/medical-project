@@ -7,6 +7,8 @@ use App\Http\Requests\Main_SectionRequest;
 use App\Models\Main_Section;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Redirect;
+
 
 class Main_SectionController extends Controller
 {
@@ -38,14 +40,13 @@ class Main_SectionController extends Controller
                 'message' => 'main-section Inserted Successfully',
                 'alert-type' => 'success',
             );
-            return redirect()->route('main-section.index')->with($notification);
+            return redirect::route('main-section.index')->with($notification);
         }catch (\Exception $e) {
-            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
     }
 
     public function edit($id){
-
         $main_section = Main_Section::findorFail($id);
         return view('admin.homepage.main-section.edit', compact('main_section'));
     }
@@ -56,7 +57,7 @@ class Main_SectionController extends Controller
             $old_image = $request->old_image;
 
             if($request->file('image')){
-                unlink($old_image);
+                @unlink($old_image);
                 $image = $request->file('image');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(1920,1000)->save('upload/homepage/'.$name_gen);
@@ -69,15 +70,16 @@ class Main_SectionController extends Controller
                 'subtitle' => ['ar' => $request->subtitle_ar, 'en' => $request->subtitle], 
                 'description' => ['ar' => $request->description_ar, 'en' => $request->description], 
                 'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
+                'publish' => $request->publish,
             ]);
 
             $notification = array(
                 'message' => 'main section updated Successfully',
                 'alert-type' => 'info',
             );
-            return redirect()->route('main-section.index')->with($notification);
+            return redirect::route('main-section.index')->with($notification);
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
     }
 
@@ -93,10 +95,6 @@ class Main_SectionController extends Controller
             'alert-type' => 'error',
         );
 
-        return redirect()->back()->with($notification);
-
+        return redirect::back()->with($notification);
     }
-
-
-
 }

@@ -4,18 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use Spatie\Translatable\HasTranslations;
 class Image_Section extends Model
 {
     use HasFactory;
+    use Hastranslations;
 
     protected $table = 'image_sections';
-
-    protected $fillable = [
-        'image',
-        'title_ar',
-        'title_en',
-        'button_ar',
-        'button_en'
-    ];
+    public $translatable = ['title','button'];
+    protected $guarded = [];
 }

@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('title')
-    main-section
+    main section
 @endsection
 
 @section('content')
@@ -21,12 +21,13 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>ID</th>
+                                <th>#</th>
                                 <th>Image</th>
                                 <th>Title</th>
                                 <th>Sub-title</th>
                                 <th>Description</th>
                                 <th>Button</th>
+                                <th>Publish</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -40,18 +41,17 @@
                                 <td>{{$section->subtitle}}</td>
                                 <th>{{$section->description}}</th>
                                 <td>{{$section->button}}</td>
-                                <td>
+                                <td class={{$section->publish == 1 ? 'text-success':'text-danger'}}>{{$section->publish == 1 ? 'published' : 'draft'}}</td>                               <td>
                                     <a href="{{route('main-section.edit', $section->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('main-section.destroy', $section->id)}}" class="btn btn-danger btn-sm" title="Delete" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('main-section.destroy', $section->id)}}" class="btn btn-danger btn-sm" title="Delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
+
                     </table>
                 </div>
-
             </div>
-            
         </div>
     </div>
 @endsection

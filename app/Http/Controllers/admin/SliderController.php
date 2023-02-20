@@ -7,6 +7,8 @@ use App\Http\Requests\SlidersRequest;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Redirect;
+
 
 class SliderController extends Controller
 {
@@ -46,7 +48,7 @@ class SliderController extends Controller
                 'message' => 'slider Inserted Successfully',
                 'alert-type' => 'success',
             );
-            return redirect()->route('slider.index')->with($notification);
+            return redirect::route('slider.index')->with($notification);
         }catch (\Exception $e) {
             return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
         }
@@ -67,7 +69,7 @@ class SliderController extends Controller
             $old_image = $request->old_image;
 
             if($request->file('image_url')){
-                unlink($old_image);
+                @unlink($old_image);
                 $image = $request->file('image_url');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
                 Image::make($image)->resize(1920,1000)->save('upload/homepage/'.$name_gen);
@@ -85,7 +87,7 @@ class SliderController extends Controller
                 'message' => 'slider updated Successfully',
                 'alert-type' => 'info',
             );
-            return redirect()->route('slider.index')->with($notification);
+            return redirect::route('slider.index')->with($notification);
         } catch (\Exception $e) {
             return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
         }

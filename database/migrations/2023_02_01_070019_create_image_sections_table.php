@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('image_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('title',200);
+            $table->string('title');
             $table->string('image');
             $table->string('button');
+            $table->enum('publish', ['1','0'])->default('1');
             $table->timestamps();
         });
     }

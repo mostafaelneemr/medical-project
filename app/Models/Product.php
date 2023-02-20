@@ -4,20 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 class Product extends Model
 {
     use HasFactory;
+    use Hastranslations;
 
     protected $table = 'products';
-
-    protected $fillable = [
-        'title_ar',
-        'title_en',
-        'image',
-        'title_des_ar',
-        'title_des_en',
-        'price_ar',
-        'price_en'
-    ];
+    public $translatable = ['title'];
+    protected $guarded = [];
 }

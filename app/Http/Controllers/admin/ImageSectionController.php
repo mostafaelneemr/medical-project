@@ -3,69 +3,84 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Image_SectionRequest;
 use App\Models\Image_Section;
-use App\Models\Interior_Section;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Redirect;
 
 class ImageSectionController extends Controller
 {
-      public function index(){
-          $image_section = Image_Section::all();
-          return view('admin.homepage.image_section.index', compact('image_section'));
-      }
+    public function index(){
+        $images = Image_Section::all();
+        return view('admin.homepage.image_section.index', compact('images'));
+    }
 
-      public function create(){
+    public function create(){
+        return view('admin.homepage.Image_section.create');
+    }
 
-          return view('admin.homepage.Image_section.create');
-      }
+    public function store(Request $request){
+        try {
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(480, 480)->save('upload/homepage/' . $name_gen);
+            $save_url = 'upload/homepage/' . $name_gen;
 
-      public function store(Image_SectionRequest $request){
-          $fil_name  = $this->saveImage($request->image, 'backend/images/image.section');
-          Image_Section::create([
-              'image' => $fil_name,
-              'title_ar' => $request->title_ar,
-              'title_en' => $request->title_en,
-              'button_ar' => $request->button_ar,
-              'button_en' => $request->button_en
-          ]);
+            Image_Section::create([
+                'title' => ['ar' => $request->title_ar, 'en' => $request->title],
+                'button' => ['ar' => $request->button_ar, 'en' => $request->button],
+                'image' => $save_url,
+            ]);
 
-          return redirect()->route('image.index');
-      }
-    protected function saveImage($image, $folder){
-        $file_extension = $image->getClientOriginalExtension();
-        $fil_name = time().'.'.$file_extension;
-        $path = $folder;
-        $image->move($path,$fil_name);
-        return $fil_name;
+            $notification = array(
+                'message' => 'Image Inserted Successfully',
+                'alert-type' => 'success',
+            );
+
+            return redirect::route('images.index')->with($notification);
+        } catch (\Exception $e) {
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
 
     public function edit($id){
-
-       $image_section = Image_Section::findorfail($id);
-       return view('admin.homepage.Image_section.edit', compact('image_section'));
+       $images = Image_Section::findorfail($id);
+       return view('admin.homepage.Image_section.edit', compact('images'));
     }
 
-    public function update(Request $request, $id){
-        $fil_name  = $this->saveImage($request->image, 'backend/images/image.section');
+    public function update(Request $request){
 
-        $image_section = Image_Section::findorFail($id);
-        $image_section->update([
-            'image' => $fil_name,
-            'title_ar' => $request->title_ar,
-            'title_en' => $request->title_en,
-            'button_ar' => $request->button_ar,
-            'button_en' => $request->button_en
-        ]);
+        try {
+            $id = $request->id;
+            $old_image = $request->old_image;
 
-        return redirect()->route('image.index');
+            if($request->file('image')){
+                @unlink($old_image);
+                $image = $request->file('image');
+                $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+                Image::make($image)->resize(480,480)->save('upload/homepage/'.$name_gen);
+                $save_url = 'upload/homepage/'.$name_gen;
+                Image_Section::findOrFail($id)->update(['image' => $save_url]);
+            }
+
+            Image_Section::findOrFail($id)->update([
+                'title' => ['en' => $request->title, 'ar' => $request->title_ar],
+                'button' => ['en' => $request->button, 'ar' => $request->button_ar],
+            ]);
+
+            $notification = array(
+                'message' => 'image update success',
+                'alert-type' => 'info',
+            );
+
+            return redirect::route('images.index')->with($notification);
+        } catch (\Exception $e) {
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
-
 
     public function destroy($id){
-
-          Image_Section::findorFail($id)->delete();
-        return redirect()->route('image.index');
+        
     }
 
 }

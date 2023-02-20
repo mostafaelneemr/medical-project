@@ -106,8 +106,6 @@
     </div>
     <!-- Orders Status widgets-->
 
-
-
   <div class="calendar-main mb-30">
   <div class="row">
     <div class="col-lg-3">

@@ -6,66 +6,82 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\OurClientRequest;
 use App\Models\OurClient;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Facades\Redirect;
 
 class OurClientController extends Controller
 {
     public function index(){
-
-
-        $ourClient = OurClient::all();
-       return view('admin.homepage.ourClient.index', compact('ourClient'));
+        $clients = OurClient::all();
+       return view('admin.homepage.ourClient.index', compact('clients'));
     }
 
     public function create(){
-
         return view('admin.homepage.ourClient.create');
     }
 
+    public function store(Request $request){
+        try {
+            $image = $request->file('image');
+            $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+            Image::make($image)->resize(270,270)->save('upload/homepage/' . $name_gen);
+            $save_url = 'upload/homepage/' . $name_gen;
 
-    public function store(OurClientRequest $request){
-        $fil_name  = $this->saveImage($request->image, 'backend/images/ourClient');
-        OurClient::create([
-            'title_ar' =>$request->title_ar ,
-            'title_en' =>$request->title_en,
-            'image' =>$fil_name,
-            'company_name_ar' =>$request->company_name_ar,
-            'company_name_en' =>$request->company_name_en
-        ]);
+            OurClient::create([
+                'image' => $save_url,
+                'name' => ['en' => $request->name, 'ar' => $request->name_ar],
+                'title_name' => ['en' => $request->title_name, 'ar' => $request->title_name_ar],
+            ]);
 
-        return redirect()->route('ourClient.index');
+            $notification = array(
+                'message' => 'Add Client Is Success',
+                'alert-type' => 'success',
+            );
+            
+            return redirect::route('clients.index')->with($notification);
+
+        } catch (\Exception $e) {
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
-
-    protected function saveImage($image, $folder){
-        $file_extension = $image->getClientOriginalExtension();
-        $fil_name = time().'.'.$file_extension;
-        $path = $folder;
-        $image->move($path,$fil_name);
-        return $fil_name;
-    }
-
 
     public function edit($id){
-
         $ourClient = OurClient::findorfail($id);
         return view('admin.homepage.ourClient.edit', compact('ourClient'));
     }
 
     public function update(Request $request, $id){
-        $fil_name  = $this->saveImage($request->image, 'backend/images/ourClient');
-
-        $ourClient = OurClient::findorfail($id);
-        $ourClient->update([
-            'title_ar' =>$request->title_ar,
-            'title_en' =>$request->title_en,
-            'image' =>$fil_name,
-            'company_name_ar' =>$request->company_name_ar,
-            'company_name_en' =>$request->company_name_en
-        ]);
-        return redirect()->route('ourClient.index');
+        try {
+            $id = $request->id;
+            $old_image = $request->old_image;
+    
+            if ($request->file('image')) {
+                @unlink($old_image);
+                $image = $request->file('image');
+                $name_gen = hexdec(uniqid($image)). '.' .$image->getClientOriginalExtension();
+                Image::make($image)->resize(270,270)->save('upload/homepage/'.$name_gen);
+                $save_url = 'upload/homepage/'.$name_gen;
+                OurClient::findOrFail($id)->update([ 'image' => $save_url ]);
+            }
+    
+            OurClient::findOrFail($id)->update([
+                'name' => ['en' => $request->name, 'ar' => $request->name_ar],
+                'title_name' => ['en' => $request->title_name, 'ar' => $request->title_name_ar],
+                'publish' => $request->publish,
+            ]);
+    
+            $notification = array(
+                'message' => 'Update Client Is Success',
+                'alert-type' => 'info',
+            );
+    
+            return redirect::route('clients.index')->with($notification);
+        } catch (\Exception $e) {
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
 
     public function destroy($id){
-
         OurClient::findorfail($id)->delete();
         return redirect()->route('ourClient.index');
     }

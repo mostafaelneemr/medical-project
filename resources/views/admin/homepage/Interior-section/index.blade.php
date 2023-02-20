@@ -4,7 +4,6 @@
     Interior-section
 @endsection
 
-
 @section('content')
     <div class="row">
         <div class="col-md-12 ">
@@ -22,9 +21,9 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                             <tr>
-                                <th>ID</th>
-                                <th>Title</th>
-                                <th>Subtitle</th>
+                                <th>#</th>
+                                <th>Head</th>
+                                <th>Sub Head</th>
                                 <th>Interior title</th>
                                 <th>description</th>
                                 <th>Button</th>
@@ -36,18 +35,19 @@
                         @foreach($interiors as $section)
                             <tr>
                                 <td>{{$loop->index +1}}</td>
-                                <td>{{$section->title}}</td>
-                                <td>{{$section->subtitle}}</td>
+                                <td>{{$section->head}}</td>
+                                <td>{{$section->sub_head}}</td>
                                 <th>{{$section->interior_title}}</th>
                                 <th>{{$section->description}}</th>
                                 <td>{{$section->button}}</td>
                                 <td>
-                                    {{-- <a href="{{url('interior/edit'.$section->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a> --}}
-                                    {{-- <a href="{{url('interior/delete'.$section->id)}}" class="btn btn-danger btn-sm" title="Delete" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a> --}}
+                                    <a href="{{route('interior_Section.edit',$section->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('interior_Section.destroy',$section->id)}}" class="btn btn-danger btn-sm" title="Delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
+
                     </table>
                 </div>
             </div>
