@@ -6,6 +6,64 @@
 
 @section('content')
 
+<div class="slider-revoluation">
+    <div id="rev_slider_8_1_wrapper" class="rev_slider_wrapper fullwidthbanner-container" data-alias="home-authentic-studio"
+        data-source="gallery" style="margin:0px auto;background:transparent;padding:0px;margin-top:0px;margin-bottom:0px;">
+        <!-- START REVOLUTION SLIDER 5.4.7 fullwidth mode -->
+        <div id="rev_slider_8_1" class="rev_slider fullwidthabanner" style="display:none;" data-version="5.4.7">
+            <ul>
+                <!-- SLIDE  -->
+                @foreach ($sliders as $slider)
+                    
+                <li data-index="rs-16" data-transition="curtain-1,curtain-3,curtain-2" data-slotamount="default,default,default,default"
+                    data-hideafterloop="0" data-hideslideonmobile="off" data-randomtransition="on" data-easein="default,default,default,default"
+                    data-easeout="default,default,default,default" data-masterspeed="default,default,default,default"
+                    data-thumb="{{asset('website/img/revoulation/100x50_slider-authentic-studio-slide-01-bg.jpg')}}" data-rotate="0,0,0,0"
+                    data-saveperformance="off" data-title="Slide" data-param1="01" data-param2="" data-param3=""
+                    data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
+                    data-param10="" data-description="">
+                    <!-- MAIN IMAGE -->
+                    {{-- @if($section->image_url) --}}
+                        <img src="{{asset($slider->image_url)}}" alt="" data-bgposition="center center"
+                        data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                    {{-- @else --}}
+                        {{-- <img src="{{ asset('website/img/slider/presentation/home-presentation-image-01.jpg') }}" alt="" data-bgposition="center center"
+                        data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                    @endif --}}
+
+                    <!-- LAYERS -->
+
+                    <!-- LAYER NR. 2 -->
+                    <div class="tp-caption tp-resizeme" id="slide-16-layer-1" data-x="['center','center','center','center']"
+                        data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
+                        data-voffset="['-25','-28','-28','-10']" data-fontsize="['80','60','45','30']"
+                        data-lineheight="['90','67','50','34']" data-width="['670','670','620','380']"
+                        data-height="['none','135','none','none']" data-whitespace="normal" data-type="text"
+                        data-responsive_offset="on" data-frames='[{"delay":700,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                        data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
+                        data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                        style="z-index: 6; min-width: 630px; max-width: 630px; white-space: normal; font-size: 80px; line-height: 90px; font-weight: 700; color: #ffffff; letter-spacing: 0px;">
+                        {{$slider->title}}</div>
+
+                    <!-- LAYER NR. 3 -->
+                    <a class="tp-caption rev-btn  smooth-scroll-link" href="#section-about" target="_self" id="slide-16-layer-24"
+                        data-x="['center','center','center','center']" data-hoffset="['0','0','0','0']" data-y="['middle','middle','middle','middle']"
+                        data-voffset="['140','140','140','100']" data-width="160" data-height="55"
+                        data-whitespace="normal" data-type="button" data-actions='' data-responsive_offset="on"
+                        data-responsive="off" data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"300","ease":"Linear.easeNone","to":"o:1;rX:0;rY:0;rZ:0;z:0;","style":"c:rgb(255,255,255);bg:rgb(34,34,34);transform:translateY(-3px);"}]'
+                        data-textAlign="['center','center','center','center']" data-paddingtop="[0,0,0,0]"
+                        data-paddingright="[20,20,20,20]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[20,20,20,20]"
+                        style="z-index: 7; min-width: 160px;overflow:hidden; white-space: normal; font-size: 16px;font-weight: 700; color: #222222; letter-spacing: 0px;background-color:rgb(255,255,255);border-radius:5px 5px 5px 5px;outline:none;box-shadow:none;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box;cursor:pointer;text-decoration: none;">
+                        {{$slider->button}}</a>
+                </li>
+
+                @endforeach
+            {{-- <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div> --}}
+        </div>
+    </div>
+    <!-- END REVOLUTION SLIDER -->
+</div>
+
 <!-- Start About Area -->
 <div class="brook-about-area bg_color--1 ptb--120 ptb-md--80 ptb-sm--60">
     <div class="container">
@@ -82,25 +140,25 @@
             <!-- End Single Portfolio -->
             {{-- <div class="col-lg-12 col-xl-6 col-12">
                 <div class="row row--0"> --}}
-                    @foreach ($images as $image)                            
-                    <div class="col-lg-3">
-                        <!-- Start Single Portfolio -->
-                        <div class="portfolio-cation wow move-up">
-                            <div class="thumb">
-                                <img src="{{ $image->image}}" alt="Portfolio Images">
-                            </div>
-                            <div class="port-overlay-info">
-                                <div class="hover-action">
-                                    <h3 class="post-overlay-title"><a href="#">{{$image->title}}</a></h3>
-                                    <div class="category">{{ $image->button }}</div>
-                                </div>
+                @foreach ($images as $image)                            
+                <div class="col-lg-3">
+                    <!-- Start Single Portfolio -->
+                    <div class="portfolio-cation wow move-up">
+                        <div class="thumb">
+                            <img src="{{ asset($image->image) }}" alt="Portfolio Images">
+                        </div>
+                        <div class="port-overlay-info">
+                            <div class="hover-action">
+                                <h3 class="post-overlay-title"><a href="#">{{$image->title}}</a></h3>
+                                <div class="category">{{ $image->button }}</div>
                             </div>
                         </div>
-                        <!-- End Single Portfolio -->
-                        {{-- </div>
-                        </div> --}}
                     </div>
-                    @endforeach
+                    <!-- End Single Portfolio -->
+                    {{-- </div>
+                    </div> --}}
+                </div>
+                @endforeach
         </div>
     </div>
 </div>
@@ -126,7 +184,7 @@
                     <div class="product-thumbnail">
                         <div class="thumbnail">
                             <div class="product-main-image">
-                                <img src="{{$product->image}}" alt="Multipurpose">
+                                <img src="{{ asset($product->image) }}" alt="Multipurpose">
                             </div>
                         </div>
                         {{-- <div class="product-action">
@@ -165,7 +223,7 @@
                         <p class="bk_pra heading-font">{{ $customer->description }}</p>
                         <div class="testimonial-info">
                             <div class="post-thumbnail">
-                                <img src="{{$customer->image}}" alt="clint image">
+                                <img src="{{ asset($customer->image) }}" alt="clint image">
                             </div>
                             <div class="clint-info">
                                 <h6>{{$customer->customer_name}}</h6>

@@ -35,7 +35,7 @@
                         @foreach($customers as $customer)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td><img src="{{ $customer->image }}" style="width: 150px; height: 100px" alt=""></td>
+                                <td><img src="{{ asset($customer->image) }}" style="width: 150px; height: 100px" alt=""></td>
                                 <td>{{$customer->customer_name}}</td>
                                 <td>{{$customer->title}}</td>
                                 <td>{{$customer->description}}</td>

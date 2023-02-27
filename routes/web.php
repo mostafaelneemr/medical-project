@@ -1,14 +1,11 @@
 <?php
 
-use App\Http\Controllers\admin\CustomerController;
-use App\Http\Controllers\admin\ImageSectionController;
+use App\Http\Controllers\admin\about\{AboutImageController, AboutSliderController, CustomerController, HelpController} ;
+use App\Http\Controllers\admin\home\{ImageSectionController , SliderController, ProductController};
 use App\Http\Controllers\admin\Interior_SectionController;
 use App\Http\Controllers\admin\Main_SectionController;
-use App\Http\Controllers\admin\NewUpdateController;
 use App\Http\Controllers\admin\OurClientController;
-use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\settingController;
-use App\Http\Controllers\admin\SliderController;
 use App\Http\Controllers\website\websiteController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -33,13 +30,21 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'
 ])->group(function () {
     Route::get('/dashboard', function () { return view('admin.dashboard'); })->name('dashboard');
 
-    Route::resource('slider', SliderController::class);
-    Route::resource('main-section', Main_SectionController::class);
-    Route::resource('interior_Section', Interior_SectionController::class);
-    Route::resource('images', ImageSectionController::class);
-    Route::resource('products', ProductController::class);
-    Route::resource('customers', CustomerController::class);
-    Route::resource('clients', OurClientController::class);
+    Route::group(['prefix' => 'home'], function () {
+        Route::resource('home-slider', SliderController::class);
+        Route::resource('main-section', Main_SectionController::class);
+        Route::resource('interior_Section', Interior_SectionController::class);
+        Route::resource('images', ImageSectionController::class);
+        Route::resource('products', ProductController::class);
+        Route::resource('clients', OurClientController::class);
+    });
+ 
+    Route::group(['prefix' => 'about'], function() {
+        Route::resource('about-slider', AboutSliderController::class);
+        Route::resource('customers', CustomerController::class);
+        Route::resource('help-section', HelpController::class);
+        Route::resource('image-section', AboutImageController::class);
+    });
 
     Route::get('settings', [settingController::class, 'index'])->name('settings');
     Route::patch('setting/update', [settingController::class, 'update'])->name('settings.update');
@@ -56,5 +61,7 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
     ], function(){
 
-        Route::get('/', [websiteController::class, 'index'])->name('home');
+        Route::get('/', [websiteController::class, 'home'])->name('home');
+        Route::get('/about', [websiteController::class, 'about'])->name('about');
+        Route::get('/service', [websiteController::class, 'service'])->name('service');
     });

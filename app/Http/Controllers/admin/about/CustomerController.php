@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\about;
 
 use App\Http\Controllers\Controller;
 use App\Models\Customer;
@@ -12,20 +12,20 @@ class CustomerController extends Controller
 {
     public function index(){
         $customers = Customer::all();
-        return view('admin.homepage.customer.index', compact('customers'));
+        return view('admin.about.customer.index', compact('customers'));
     }
 
     public function create(){
 
-        return view('admin.homepage.customer.create');
+        return view('admin.about.customer.create');
     }
 
     public function store(Request $request){
         try {
             $image = $request->file('image');
             $name_gen = hexdec(uniqid()). '.' .$image->getClientOriginalExtension();
-            Image::make($image)->resize(50,50)->save('upload/homepage/'.$name_gen);
-            $save_url = 'upload/homepage/'.$name_gen;
+            Image::make($image)->resize(50,50)->save('upload/about/'.$name_gen);
+            $save_url = 'upload/about/'.$name_gen;
 
             Customer::create([
                 'description' => ['en' =>$request->description, 'ar' => $request->description_ar],
@@ -47,7 +47,7 @@ class CustomerController extends Controller
 
     public function edit($id){
         $customer = Customer::findorfail($id);
-        return view('admin.homepage.customer.edit', compact('customer'));
+        return view('admin.about.customer.edit', compact('customer'));
     }
 
     public function update(Request $request, $id){
@@ -59,8 +59,8 @@ class CustomerController extends Controller
                 @unlink($old_image);
                 $image = $request->file('image');
                 $name_gen = hexdec(uniqid($image)). '.' .$image->getClientOriginalExtension();
-                Image::make($image)->save('upload/homepage/'.$name_gen);
-                $save_url = 'upload/homepage/'.$name_gen;
+                Image::make($image)->save('upload/about/'.$name_gen);
+                $save_url = 'upload/about/'.$name_gen;
                 Customer::findOrFail($id)->update([ 'image' => $save_url]);
             }
 
@@ -83,17 +83,21 @@ class CustomerController extends Controller
     }
 
     public function show($id){
-        $customers = Customer::findOrFail($id);
-        $img = $customers->image;
-        @unlink($img);
-
-        Customer::findOrFail($id)->delete();
-
-        $notification = array(
-            'message' => 'Customer Section Deleted is Success',
-            'alert-type' => 'error',
-        );
-
-        return redirect::back()->with($notification);
+        try {
+            $customers = Customer::findOrFail($id);
+            $img = $customers->image;
+            @unlink($img);
+    
+            Customer::findOrFail($id)->delete();
+    
+            $notification = array(
+                'message' => 'Customer Section Deleted is Success',
+                'alert-type' => 'error',
+            );
+    
+            return redirect::back()->with($notification);
+        } catch (\Exception $e) {
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
+        }
     }
 }

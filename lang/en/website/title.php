@@ -2,7 +2,8 @@
 
 return [
 
-    'homepage' => 'home page',
-
+    'homepage' => 'home',
+    'about' => 'about',
+    'service' => 'service',
 
 ];

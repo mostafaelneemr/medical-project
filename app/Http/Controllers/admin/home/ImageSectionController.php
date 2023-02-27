@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\home;
 
 use App\Http\Controllers\Controller;
-use App\Models\Image_Section;
+use App\Models\home\Image_Section;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Redirect;

@@ -27,7 +27,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <form class="form" action="{{route('slider.update', $slider->id)}}" method="POST" enctype="multipart/form-data">
+                <form class="form" action="{{route('home-slider.update', $slider->id)}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 

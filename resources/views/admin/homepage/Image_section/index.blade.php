@@ -21,7 +21,7 @@
                     <table class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>#</th>
                             <th>Image</th>
                             <th>Title</th>
                             <th>button</th>

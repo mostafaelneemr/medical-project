@@ -1,33 +1,28 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\about;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SlidersRequest;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Redirect;
 
-
-class SliderController extends Controller
+class AboutSliderController extends Controller
 {
-    CONST SLIDER_TYPE = 'home';
-    
-    // Function Index//
+    CONST SLIDER_TYPE = 'about';
+
     public function index()
     {
-        $sliders = Slider::all();
-        return view('admin.homepage.sliders.index', compact('sliders'));
+        $sliders = Slider::where('slider_type', 'about')->get();
+        return view('admin.about.sliders.index', compact('sliders'));
     }
 
-    // Function Create
     public function create()
     {
-        return view('admin.homepage.sliders.create');
+        return view('admin.about.sliders.create');
     }
 
-    // Function Store//
     public function store(Request $request)
     {
         try{
@@ -38,8 +33,6 @@ class SliderController extends Controller
 
             Slider::create([
                 'title' => ['ar' => $request->title_ar, 'en' => $request->title], 
-                'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
-                'publish' => 1,
                 'slider_type' => static::SLIDER_TYPE,
                 'image_url' => $save_url,
             ]);
@@ -48,20 +41,18 @@ class SliderController extends Controller
                 'message' => 'slider Inserted Successfully',
                 'alert-type' => 'success',
             );
-            return redirect::route('slider.index')->with($notification);
+            return redirect::route('about-slider.index')->with($notification);
         }catch (\Exception $e) {
             return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
         }
     }
 
-   // Function Edit//
     public function edit($id)
     {
         $slider = Slider::findorFail($id);
-        return view('admin.homepage.sliders.edit', compact('slider'));
+        return view('admin.about.sliders.edit', compact('slider'));
     }
 
-   // Function Update//
     public function update(Request $request, $id)
     {
         try {
@@ -79,7 +70,6 @@ class SliderController extends Controller
 
             Slider::findOrFail($id)->update([
                 'title' => ['ar' => $request->title_ar, 'en' => $request->title], 
-                'button' => ['ar' => $request->button_ar, 'en' => $request->button], 
                 'publish' => $request->publish,
             ]);
 
@@ -87,9 +77,9 @@ class SliderController extends Controller
                 'message' => 'slider updated Successfully',
                 'alert-type' => 'info',
             );
-            return redirect::route('slider.index')->with($notification);
+            return redirect::route('about-slider.index')->with($notification);
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
     }
 
@@ -105,9 +95,6 @@ class SliderController extends Controller
             'alert-type' => 'error',
         );
 
-        return redirect()->back()->with($notification);
+        return redirect::back()->with($notification);
     }
-
 }
-
-

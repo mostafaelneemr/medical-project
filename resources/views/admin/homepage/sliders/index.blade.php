@@ -16,7 +16,7 @@
                 <div class="card-header">
                     <h3> Slider List
                         @if (\app\Models\Slider::where('slider_type' , 'home')->count() == 0)
-                            <a href="{{route('slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
+                            <a href="{{route('home-slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
                         @endif
                     </h3>
                 </div>
@@ -43,8 +43,8 @@
                                 <td>{{$slider->button}}</td>
                                 <td class={{$slider->publish == 1 ? 'text-success':'text-danger'}}>{{$slider->publish == 1 ? 'published' : 'draft'}}</td>
                                 <td>
-                                    <a href="{{route('slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('slider.destroy', $slider->id)}}" class="btn btn-danger btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('home-slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('home-slider.destroy', $slider->id)}}" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

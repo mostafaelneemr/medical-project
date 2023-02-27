@@ -20,12 +20,11 @@
            <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
          </a>
          <ul id="elements" class="collapse" data-parent="#sidebarnav">
-          <li><a href="{{route('slider.index')}}">Slider Section</a></li>
+          <li><a href="{{route('home-slider.index')}}">Slider Section</a></li>
           <li><a href="{{route('main-section.index')}}">Main Section</a></li>
           <li><a href="{{route('interior_Section.index')}}">Interior Section</a></li>
           <li><a href="{{route('images.index')}}">Image Section</a></li>
           <li><a href="{{route('products.index')}}">Products Section</a></li>
-          <li><a href="{{route('customers.index')}}">Customers Section</a></li>
           <li><a href="{{route('clients.index')}}">OurClients Section</a></li>
           {{-- <li><a href="{{route('newUpdate')}}">NewUpdate Section</a></li> --}}
          </ul>
@@ -33,12 +32,16 @@
        <!-- menu item calendar-->
        <li>
          <a href="javascript:void(0);" data-toggle="collapse" data-target="#calendar-menu">
-           <div class="pull-left"><i class="ti-calendar"></i><span class="right-nav-text">calendar</span></div>
+           <div class="pull-left"><i class="ti-calendar"></i><span class="right-nav-text">About</span></div>
            <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
          </a>
          <ul id="calendar-menu" class="collapse" data-parent="#sidebarnav">
-           <li> <a href="calendar.html">Events Calendar </a> </li>
-           <li> <a href="calendar-list.html">List Calendar</a> </li>
+           <li> <a href="{{ route('about-slider.index') }}">Slider Section</a></li>
+           <li><a href="{{route('customers.index')}}">Customers Section</a></li>
+           <li><a href="{{route('help-section.index')}}">Help Section</a></li>
+           <li><a href="{{route('image-section.index')}}">Image Section</a></li>
+
+           {{-- <li> <a href="calendar-list.html">List Calendar</a> </li> --}}
          </ul>
        </li>
        <!-- menu item todo-->
