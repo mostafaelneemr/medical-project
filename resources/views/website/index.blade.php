@@ -272,7 +272,7 @@
                     <!-- Image Wrap -->
                     <div class="image-wrap">
                         <div class="thumb">
-                            <img src="{{$client->image}}" alt="Team images">
+                            <img src="{{ asset($client->image) }}" alt="Team images">
                             <div class="overlay"></div>
                             <div class="shape">
                                 {{-- <img class="shape-01" src="{{asset('website/img/team/shape/team-shape-1.png')}}" alt="shape image"> --}}

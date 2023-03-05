@@ -7,7 +7,7 @@ use App\Models\about\About_Image;
 use App\Models\about\help;
 use App\Models\Customer;
 use App\Models\home\{Image_Section, Product};
-use App\Models\Interior_Section;
+use App\Models\service\Interior_Section;
 use App\Models\Main_Section;
 use App\Models\OurClient;
 use App\Models\Slider;
@@ -25,11 +25,11 @@ class websiteController extends Controller
     {
         $sliders = Slider::orderBy('id', 'DESC')->where('slider_type', 'home')->get();
         $main_sections = Main_Section::orderBy('id', 'DESC')->where('publish', 1)->get();
-        $interiors = Interior_Section::orderBy('id' , 'DESC')->get();
+        $interiors = Interior_Section::orderBy('id' , 'DESC')->paginate(3);
         $images = Image_Section::orderBy('id', 'DESC')->where('publish', 1)->get();
         $products = Product::orderBy('id', 'DESC')->where('publish', 1)->get();
         $customers = Customer::orderBy('id', 'DESC')->where('publish', 1)->get();
-        $clients = OurClient::orderBy('id', 'DESC')->get();
+        $clients = OurClient::orderBy('id', 'DESC')->paginate(4);
         return view('website.index', compact('sliders', 'main_sections', 'interiors', 'images', 'products', 'customers', 'clients'));
     }
 
@@ -44,7 +44,14 @@ class websiteController extends Controller
 
     public function service()
     {
-        return view('website.service');
+        $interiors = Interior_Section::orderBy('id', 'DESC')->get();
+        $clients = OurClient::orderBy('id', 'DESC')->get();
+        return view('website.service', compact('interiors', 'clients'));
+    }
+
+    public function contact()
+    {
+        return view('website.contact');
     }
 
 }

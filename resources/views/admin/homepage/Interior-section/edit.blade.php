@@ -71,6 +71,27 @@
                                         @enderror
                                     </div>
                                 </div> --}}
+
+                                <input type="hidden" name="id" value="{{ $slider->id }}">
+                                <input type="hidden" name="old_image" value="{{ $slider->image_url }}">
+
+                                <div class="form-group">
+                                    <div class="text-center">
+                                        <img src="{{asset($slider->image_url)}}"
+                                            class="rounded-circle  h-25 w-25" alt="image slider">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>slider image</label>
+                                    <label class="file center-block">
+                                        <input type="file" id="file" name="image_url">
+                                        <span class="file-custom"></span>
+                                    </label>
+                                    @error('image_url')
+                                    <span class="text-danger">{{$message}}</span>
+                                    @enderror
+                                </div>
     
                                 <div class="form-row">
                                     <div class="form-group col-md-6">

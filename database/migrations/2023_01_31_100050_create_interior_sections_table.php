@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('interior_sections', function (Blueprint $table) {
             $table->id();
-            $table->string('head')->nullable();
-            $table->string('sub_head')->nullable();
-            $table->string('icon')->nullable();
-            $table->string('interior_title')->nullable();
-            $table->text('description')->nullable();
-            $table->string('button')->nullable();
+            $table->string('icon');
+            $table->string('interior_title');
+            $table->text('description');
+            $table->string('button');
+            $table->enum('publish', ['1','0'])->default('1'); // publish = 1 // un publish 0 
             $table->timestamps();
         });
     }

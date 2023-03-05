@@ -24,22 +24,22 @@
     <div class="bk-service-area pt--70 pt_md--50 pt_sm--30 bg_color--1">
         <div class="container">
             <div class="row">
-    
+                @foreach ($interiors as $interior)                    
                 <!-- Start Single Service -->
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12 wow move-up">
                     <div class="service service--1 text-center mt--30">
                         <div class="icons">
-                            <img src="../../img/interior/ios7-eye-outline.png" alt="icon">
+                            <img src="{{asset('website/img/interior/ios7-eye-outline.png')}}" alt="icon">
                         </div>
                         <div class="content">
-                            <h4>Architectural Design</h4>
-                            <p>Brook embraces a modern look with various enhanced pre-defined page elements.
-                            </p>
-                            <a class="service-btn" href="#"><span>More details</span> <i class="fa fa-arrow-right"></i></a>
+                            <h4>{{$interior->interior_title}}</h4>
+                            <p>{{ $interior->description }}</p>
+                            <a class="service-btn" href="#"><span>{{$interior->button}}</span> <i class="fa fa-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
                 <!-- End Single Service -->
+                @endforeach
 
             </div>
         </div>
@@ -142,45 +142,42 @@
             </div>
             <div class="row">
                 <!-- Start Single Team -->
-                <div class="col-lg-3 col-md-6 col-sm-6 col-12 wow move-up">
-                    <div class="team team_style--1">
-                        <!-- Image Wrap -->
-                        <div class="image-wrap">
-                            <div class="thumb">
-                                <img src="../../img/interior/team4.jpg" alt="Team images">
-                                <div class="overlay"></div>
-                                <div class="shape">
-                                    <img class="shape-01" src="../../img/team/shape/team-shape-1.png" alt="shape image">
-                                    <img class="shape-02" src="../../img/team/shape/team-shape-2.png" alt="shape image">
-                                    <img class="shape-03" src="../../img/team/shape/team-shape-3.png" alt="shape image">
-                                </div>
+                @foreach ($clients as $client)                
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12 wow move-up">
+                <div class="team team_style--1">
+                    <!-- Image Wrap -->
+                    <div class="image-wrap">
+                        <div class="thumb">
+                            <img src="{{ asset($client->image) }}" alt="Team images">
+                            <div class="overlay"></div>
+                            <div class="shape">
+                                {{-- <img class="shape-01" src="{{asset('website/img/team/shape/team-shape-1.png')}}" alt="shape image"> --}}
+                                {{-- <img class="shape-02" src="{{asset('website/img/team/shape/team-shape-2.png')}}" alt="shape image"> --}}
+                                {{-- <img class="shape-03" src="{{asset('website/img/team/shape/team-shape-3.png')}}" alt="shape image"> --}}
                             </div>
-                            <!-- Social Network -->
-                            <div class="social-networks">
-                                <div class="inner">
-                                    <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook">
-                                        <i class="fab fa-facebook"></i>
-                                    </a>
-    
-                                    <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter">
-                                        <i class="fab fa-twitter"></i>
-                                    </a>
-    
-                                    <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram">
-                                        <i class="fab fa-instagram"></i>
-                                    </a>
-                                </div>
+                        </div>
+                        
+                        <!-- Social Network -->
+                        {{-- <div class="social-networks">
+                            <div class="inner">
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+
+                                <a class="hint--bounce hint--top hint--primary" href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                             </div>
-    
-                        </div>
-                        <!-- Team Info -->
-                        <div class="info">
-                            <h6 class="name">Peter Parker</h6>
-                            <span class="position">Marketing</span>
-                        </div>
+                        </div> --}}
+
+                    </div>
+                    <!-- Team Info -->
+                    <div class="info">
+                        <h6 class="name">{{ $client->name }}</h6>
+                        <span class="position">{{$client->title_name}}</span>
                     </div>
                 </div>
-                <!-- End Single Team -->
+            </div>
+            @endforeach
+            <!-- End Single Team -->
     
             </div>
         </div>

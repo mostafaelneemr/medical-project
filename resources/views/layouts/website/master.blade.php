@@ -119,16 +119,16 @@
                                 <!-- End Dropdown Menu -->
                             </li> --}}
 
-                            <li class="lavel-1 with--drop slide-dropdown"><a href="#"><span>BLog</span></a>
+                            {{-- <li class="lavel-1 with--drop slide-dropdown"><a href="#"><span>BLog</span></a>
                                 <!-- Start Dropdown Menu -->
                                 <ul class="dropdown__menu">
                                     <li><a href="inner-page/interior/blog.html"><span>Blog</span></a></li>
                                     <li><a href="inner-page/interior/blog-details.html"><span>Blog Details</span></a></li>
                                 </ul>
                                 <!-- End Dropdown Menu -->
-                            </li>
+                            </li> --}}
 
-                            <li class="lavel-1"><a href="inner-page/interior/contact.html"><span>Contact</span></a></li>
+                            <li class="lavel-1"><a href="inner-page/interior/contact.html"><span>{{ __('website/title.contact') }}</span></a></li>
                         </ul>
                     </nav>
                 </div>

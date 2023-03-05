@@ -27,7 +27,7 @@
                         <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
                             @if (App::getLocale() == 'ar')
                                 {{ LaravelLocalization::getCurrentLocaleName() }}
-                                <img src="{{ URL::asset('backend/assets/images/flags/EG.png') }}" alt="">
+                                <img src="{{ URL::asset('backend/assets/images/flags/SA.png') }}" alt="">
                             @else
                                 {{ LaravelLocalization::getCurrentLocaleName() }}
                                 <img src="{{ URL::asset('backend/assets/images/flags/US.png') }}" alt="">

@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
+            $table->enum('publish', ['1','0'])->default('1');
             $table->timestamps();
         });
     }

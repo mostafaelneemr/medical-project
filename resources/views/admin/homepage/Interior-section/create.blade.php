@@ -16,8 +16,8 @@
                 </div>
                 
                 <div class="card-body">
-                    <form action="{{route('interior_Section.store')}}" method="POST">
-                    @csrf
+                    <form action="{{route('interior_Section.store')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
 
                         <div class="form-body">
                             {{-- <div class="form-row">
@@ -55,6 +55,17 @@
                                     @enderror
                                 </div>
                             </div> --}}
+
+                            <div class="form-group">
+                                <label>Image</label>
+                                <label id="projectinput7" class="file center-block">
+                                    <input type="file" id="file" name="icon" required>
+                                    <span class="file-custom"></span>
+                                </label>
+                                @error('icon')
+                                <span class="text-danger">{{$message}}</span>
+                                @enderror
+                            </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-6">
