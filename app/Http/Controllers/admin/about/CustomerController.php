@@ -58,7 +58,7 @@ class CustomerController extends Controller
             if ($request->file('image')) {
                 @unlink($old_image);
                 $image = $request->file('image');
-                $name_gen = hexdec(uniqid($image)). '.' .$image->getClientOriginalExtension();
+                $name_gen = hexdec(uniqid()). '.' .$image->getClientOriginalExtension();
                 Image::make($image)->save('upload/about/'.$name_gen);
                 $save_url = 'upload/about/'.$name_gen;
                 Customer::findOrFail($id)->update([ 'image' => $save_url]);

@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('ourclients', function (Blueprint $table) {
             $table->id();
-            $table->string('head')->nullable();
-            $table->string('image')->nullable();
-            $table->string('name')->nullable();
-            $table->string('title_name')->nullable();
+            $table->string('image');
+            $table->string('name');
+            $table->string('title_name');
             $table->enum('publish', ['1','0'])->default('1');
             $table->timestamps();
         });

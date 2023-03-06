@@ -34,7 +34,7 @@
                         @foreach($images as $section)
                             <tr>
                                 <td>{{$loop->index +1}}</td>
-                                <td><img src="{{$section->image}}" style="width: 100px; height: 100px" alt=""></td>
+                                <td><img src="{{asset($section->image)}}" style="width: 100px; height: 100px" alt=""></td>
                                 <td>{{$section->title}}</td>
                                 <td>{{$section->button}}</td>
                                 <td class={{$section->publish == 1 ? 'text-success':'text-danger'}}>{{$section->publish == 1 ? 'published' : 'draft'}}</td>

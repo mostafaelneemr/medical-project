@@ -29,66 +29,29 @@
                 </div>
 
                 <div class="card-body">
-                    <form action="{{route('interior_Section.update', $interiors->id)}}" method="POST">
-                        @csrf
+                    <form action="{{route('interior_Section.update', $interiors->id)}}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
+                        @csrf
     
                             <input type="hidden" name="id" value="{{ $interiors->id }}" />
+                            <input type="hidden" name="old_image" value="{{ $interiors->icon }}">
 
                             <div class="form-body">
-                                {{-- <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>title en</label>
-                                        <input type="text" name="head" class="form-control @error('head') is-invalid @enderror" value="{{ $interiors->getTranslation('head' , 'en') }}" required>
-                                        @error('head')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-    
-                                    <div class="form-group col-md-6">
-                                        <label>title ar</label>
-                                        <input type="text" name="head_ar" class="form-control @error('head_ar') is-invalid @enderror" value="{{ $interiors->getTranslation('head' , 'ar') }}" required>
-                                        @error('head_ar')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-    
-                                <div class="form-row">
-                                    <div class="form-group col-md-6">
-                                        <label>sub title en</label>
-                                        <input type="text" name="sub_head" class="form-control @error('sub_head') is-invalid @enderror" value="{{ $interiors->getTranslation('sub_head' , 'en')}}" required>
-                                        @error('sub_head')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-    
-                                    <div class="form-group col-md-6">
-                                        <label>sub title ar</label>
-                                        <input type="text" name="sub_head_ar" class="form-control @error('sub_head_ar') is-invalid @enderror" value="{{ $interiors->getTranslation('sub_head' , 'ar') }}" required>
-                                        @error('sub_head_ar')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div> --}}
-
-                                <input type="hidden" name="id" value="{{ $slider->id }}">
-                                <input type="hidden" name="old_image" value="{{ $slider->image_url }}">
 
                                 <div class="form-group">
                                     <div class="text-center">
-                                        <img src="{{asset($slider->image_url)}}"
-                                            class="rounded-circle  h-25 w-25" alt="image slider">
+                                        <img src="{{ asset($interiors->icon ) }}"
+                                            class="rounded-circle  h-25 w-25" alt="image">
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label>slider image</label>
+                                    <label>Image</label>
                                     <label class="file center-block">
-                                        <input type="file" id="file" name="image_url">
+                                        <input type="file" id="file" name="icon">
                                         <span class="file-custom"></span>
                                     </label>
-                                    @error('image_url')
+                                    @error('icon')
                                     <span class="text-danger">{{$message}}</span>
                                     @enderror
                                 </div>
@@ -142,16 +105,6 @@
                                         <label>button_ar</label>
                                         <input type="text" name="button_ar" class="form-control @error('button_ar') is-invalid @enderror" value="{{ $interiors->getTranslation('button' , 'ar') }}" required>
                                         @error('button_ar')
-                                        <div class="alert alert-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                </div>
-    
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label>Icon</label>
-                                        <input type="text" name="icon" class="form-control @error('icon') is-invalid @enderror" value="{{ $interiors->icon }}">
-                                        @error('icon')
                                         <div class="alert alert-danger">{{ $message }}</div>
                                         @enderror
                                     </div>

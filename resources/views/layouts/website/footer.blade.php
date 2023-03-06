@@ -21,11 +21,11 @@
                         <h2 class="widgettitle">About us</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
-                                <li><a href="about-us-01.html">About Us</a></li>
+                                <li><a href="{{ route('about') }}">About Us</a></li>
                                 <li><a href="team.html">Team</a></li>
                                 <li><a href="#">Career</a></li>
-                                <li><a href="services-classic.html">Services</a></li>
-                                <li><a href="contact.html">Contact</a></li>
+                                <li><a href="{{ route('service') }}">Services</a></li>
+                                <li><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
                         </div>
                     </div>
@@ -33,19 +33,19 @@
 
                 <div class="col-lg-3 col-md-6 col-sm-6 col-12 mt_md--40 mt_sm--40">
                     <div class="footer-widget text-var--2 menu--contact">
-                        <h2 class="widgettitle">Contact</h2>
+                        <h2 class="widgettitle">{{__('website/title.contact')}}</h2>
                         <div class="footer-address">
                             <div class="bk-hover">
-                                <p>2005 Stokes Isle Apt. 896, <br> Vacaville 10010, USA</p>
-                                <p><a href="#">info@yourdomain.com</a></p>
-                                <p><a href="#">(+68) 120034509</a></p>
+                                <p>{{ setting('address') }}</p>
+                                <p><a href="#">{{ setting('email') }}</a></p>
+                                <p><a href="#">{{ setting('phone') }}</a></p>
                             </div>
                             <div class="social-share social--transparent text-white">
-                                <a href="{{setting('Facebook')}}" target="_blank"><i class="fab fa-facebook"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                                <a href="{{setting('Instagram')}}" target="_blank"><i class="fab fa-instagram"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
-                                <a href="#" target="_blank"><i class="fab fa-pinterest"></i></a>
+                                <a href="{{ setting('facebook') }}" target="_blank"><i class="fab fa-facebook"></i></a>
+                                <a href="{{ setting('twitter') }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="{{ setting('instagram') }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                                {{-- <a href="#" target="_blank"><i class="fab fa-dribbble"></i></a>
+                                <a href="#" target="_blank"><i class="fab fa-pinterest"></i></a> --}}
                             </div>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
                         <ul class="bk-copyright-menu d-flex bk-hover justify-content-center justify-content-md-start flex-wrap flex-sm-nowrap">
                             <li><a href="#">Our blog</a></li>
                             <li><a href="#">Latest projects</a></li>
-                            <li><a href="#">Contact us</a></li>
+                            <li><a href="{{ route('contact') }}">{{__('website/content.contact_us')}}</a></li>
                         </ul>
                     </div>
                 </div>

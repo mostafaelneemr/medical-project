@@ -1,7 +1,7 @@
 @extends('layouts.admin.master')
 
 @section('title')
-    slider-section
+    slider section
 @endsection
 
 @section('content')

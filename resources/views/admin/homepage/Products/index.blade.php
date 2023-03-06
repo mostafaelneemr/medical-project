@@ -36,7 +36,7 @@
                         @foreach($products as $product)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td><img src="{{$product->image}}" style="width: 150px; height: 100px" alt=""></td>
+                                <td><img src="{{ asset($product->image) }}" style="width: 150px; height: 100px" alt=""></td>
                                 <td>{{$product->title}}</td>
                                 <td>{{$product->price}}</td>
                                <td class={{$product->publish == 1 ? 'text-success':'text-danger'}}>{{$product->publish == 1 ? 'published' : 'draft'}}</td>

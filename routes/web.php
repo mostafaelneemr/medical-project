@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\about\{AboutImageController, AboutSliderController, CustomerController, HelpController};
+use App\Http\Controllers\admin\contact\ContactSliderController;
 use App\Http\Controllers\admin\home\{ImageSectionController , SliderController, ProductController};
 use App\Http\Controllers\admin\service\{Interior_SectionController, ServiceSliderController};
 use App\Http\Controllers\admin\Main_SectionController;
@@ -50,9 +51,10 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'
         Route::resource('interior_Section', Interior_SectionController::class);
         Route::resource('service', ServiceSliderController::class);
         Route::resource('service-cart', ServiceSliderController::class);
+    });
 
-        // Route::get('/head/create', [Interior_SectionController::class, 'head_create'])->name('head.create');
-        // Route::post('/head/store', [Interior_SectionController::class, 'head_store'])->name('head.store');
+    Route::group(['prefix' => 'contact'], function () {
+        Route::resource('contact-slider', ContactSliderController::class);
     });
 
     Route::get('settings', [settingController::class, 'index'])->name('settings');

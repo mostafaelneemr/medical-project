@@ -44,7 +44,7 @@ class SliderController extends Controller
                 'message' => 'slider Inserted Successfully',
                 'alert-type' => 'success',
             );
-            return redirect::route('slider.index')->with($notification);
+            return redirect::route('home-slider.index')->with($notification);
         }catch (\Exception $e) {
             return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
@@ -81,7 +81,7 @@ class SliderController extends Controller
                 'message' => 'slider updated Successfully',
                 'alert-type' => 'info',
             );
-            return redirect::route('slider.index')->with($notification);
+            return redirect::route('home-slider.index')->with($notification);
         } catch (\Exception $e) {
             return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }

@@ -12,6 +12,37 @@ class OurClient extends Model
     use Hastranslations;
 
     protected $table = 'ourclients';
-    public $translatable = ['head','name','title_name'];
+    public $translatable = ['name','title_name'];
     protected $guarded = [];
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>

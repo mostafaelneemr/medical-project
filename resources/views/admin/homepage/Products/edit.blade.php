@@ -36,13 +36,13 @@
                     <div class="form-group">
                         <div class="text-center">
                             <img src="{{asset($product->image)}}"
-                                class="rounded-circle  h-25 w-25" alt="image slider">
+                                class="rounded-circle h-25 w-25" alt="image">
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label> Product image</label>
-                        <label id="projectinput7" class="file center-block">
+                        <label>Product image</label>
+                        <label id="projectinput" class="file center-block">
                             <input type="file" id="file" name="image">
                             <span class="file-custom"></span>
                         </label>

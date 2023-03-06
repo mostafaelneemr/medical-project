@@ -64,7 +64,7 @@ class HelpController extends Controller
             if ($request->file('image')) {
                 @unlink($old_image);
                 $image = $request->file('image');
-                $name_gen = hexdec(uniqid($image)). '.' .$image->getClientOriginalExtension();
+                $name_gen = hexdec(uniqid()). '.' .$image->getClientOriginalExtension();
                 Image::make($image)->resize(550,370)->save('upload/about/'.$name_gen);
                 $save_url = 'upload/about/'.$name_gen;
                 help::findOrFail($id)->update([ 'image' => $save_url]);

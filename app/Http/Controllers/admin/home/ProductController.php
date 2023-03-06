@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\admin\home;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductsRequest;
@@ -41,7 +41,7 @@ class ProductController extends Controller
             return redirect::route('products.index')->with($notifucation);
 
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
     }
 
@@ -58,7 +58,7 @@ class ProductController extends Controller
             if ($request->file('image')) {
                 @unlink($old_image);
                 $image = $request->file('image');
-                $name_gen = hexdec(uniqid($image)). '.' .$image->getClientOriginalExtension();
+                $name_gen = hexdec(uniqid()). '.' . $image->getClientOriginalExtension();
                 Image::make($image)->resize(356,475)->save('upload/homepage/'.$name_gen);
                 $save_url = 'upload/homepage/'.$name_gen;
                 Product::findOrFail($id)->update(['image' => $save_url]);
@@ -77,7 +77,7 @@ class ProductController extends Controller
 
             return redirect::route('products.index')->with($notifucation);
         } catch (\Exception $e) {
-            return redirect()->back()->withErrors(['errors' => $e->getMessage()]);
+            return redirect::back()->withErrors(['errors' => $e->getMessage()]);
         }
     }
 

@@ -46,8 +46,8 @@ class OurClientController extends Controller
     }
 
     public function edit($id){
-        $ourClient = OurClient::findorfail($id);
-        return view('admin.homepage.ourClient.edit', compact('ourClient'));
+        $clients = OurClient::findorfail($id);
+        return view('admin.homepage.ourClient.edit', compact('clients'));
     }
 
     public function update(Request $request, $id){

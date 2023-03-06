@@ -34,7 +34,7 @@
                         @foreach($clients as $client)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td><img src="{{$client->image}}" style="width: 150px; height: 100px" alt=""></td>
+                                <td><img src="{{asset($client->image)}}" style="width: 150px; height: 100px" alt=""></td>
                                 <td>{{$client->name}}</td>
                                 <td>{{$client->title_name}}</td>
                                <td class={{$client->publish == 1 ? 'text-success':'text-danger'}}>{{$client->publish == 1 ? 'published' : 'draft'}}</td>

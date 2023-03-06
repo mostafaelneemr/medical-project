@@ -30,7 +30,7 @@
                     @csrf
 
                     <div class="form-group">
-                        <label> Product image</label>
+                        <label>Product image</label>
                         <label id="projectinput7" class="file center-block">
                             <input type="file" id="file" name="image" required>
                             <span class="file-custom"></span>

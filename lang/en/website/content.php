@@ -10,7 +10,7 @@ return [
     'email' => 'Email',
     'phone_number' => 'Phone number',
     'your_message' => 'Your message', 
-
+    'contact_us' => 'Contact Us',
 ];
 
 ?>

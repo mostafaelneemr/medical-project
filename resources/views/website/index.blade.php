@@ -99,16 +99,7 @@
 <div class="bk-service-area bg_color--1 pb--110 pb_md-70 pb_sm--50">
     <div class="container">
 
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="bk-title--default text-center wow move-up">
-                    <h6 class="heading heading-h6 theme-color">WHAT WE DO</h6>
-                    <div class="bkseparator--30"></div>
-                    <h3 class="heading heading-h3">Interior is the will of an epoch <br>
-                        translated into space..</h3>
-                </div>
-            </div>
-        </div>
+        
         <div class="row mt--70 mt_sm--20 mt_md--30">
 
             <!-- Start Single Service -->
@@ -117,7 +108,7 @@
             <div class="col-lg-4 col-md-6 col-sm-12 col-12 wow move-up">
                 <div class="service service--1 text-center mt--30">
                     <div class="icons">
-                        <img src="{{asset('website/img/interior/ios7-eye-outline.png')}}" alt="icon">
+                        <img src="{{asset($interior->icon)}}" alt="icon">
                     </div>
                     <div class="content">
                         <h4>{{ $interior->interior_title }}</h4>
@@ -167,14 +158,6 @@
 <!-- Start Product Area -->
 <div class="brook-product-area ptb--120 ptb-md--80 ptb-sm--60 bg_color--1">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="brook-section-title text-center">
-                    <h3 class="heading heading-h3">Popular Products</h3>
-                </div>
-            </div>
-        </div>
-
         <div class="row mt--30">
 
             <!-- Start Single Product -->
@@ -256,13 +239,7 @@
 <!-- Start Team Area -->
 <div class="bk-team-area ptb--110 ptb-md-80 ptb-sm-60 bg_color--1">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="brook-section-title text-center">
-                    <h3 class="heading heading-h3">Our Expert</h3>
-                </div>
-            </div>
-        </div>
+        
         <div class="row">
 
             <!-- Start Single Team -->

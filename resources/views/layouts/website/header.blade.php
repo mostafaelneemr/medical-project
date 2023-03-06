@@ -17,11 +17,11 @@
                 <!-- Header Right -->
                 <div class="header-right">
                     <!-- Start Popup Search Wrap -->
-                    <div class="popup-search-wrap">
+                    {{-- <div class="popup-search-wrap">
                         <a class="btn-search-click" href="#">
                             <i class="fa fa-search"></i>
                         </a>
-                    </div>
+                    </div> --}}
 
                     <div class="btn-group mb-1">
                         <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="false" aria-expanded="false">

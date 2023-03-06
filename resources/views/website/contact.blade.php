@@ -27,22 +27,20 @@
                     <div class="classic-address text-start">
                         <h4 class="heading heading-h4">{{__('website/content.visit_studio')}}</h4>
                         <div class="desc mt--15">
-                            <p class="bk_pra line-height-2-22">2005 Stokes Isle Apt. 896, <br> Vacaville
-                                10010,
-                                USA</p>
+                            <p class="bk_pra line-height-2-22">{{ setting('address') }}</p>
                         </div>
                     </div>
 
                     <div class="classic-address text-start mt--60 ">
                         <h4 class="heading heading-h4">{{__('website/content.message_us')}}</h4>
                         <div class="desc mt--15 mb--80">
-                            <p class="bk_pra line-height-2-22">info@yourdomain.com <br> (+68) 120034509</p>
+                            <p class="bk_pra line-height-2-22">{{ setting('address')}} <br> {{ setting('phone') }}</p>
                         </div>
                         <div class="social-share social--transparent">
-                            <a href="#"><i class="fab fa-facebook"></i></a>
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-instagram"></i></a>
-                            <a href="#"><i class="fab fa-dribbble"></i></a>
+                            <a href="{{ setting('facebook') }}"><i class="fab fa-facebook"></i></a>
+                            <a href="{{ setting('twitter') }}"><i class="fab fa-twitter"></i></a>
+                            <a href="{{ setting('instagram') }}"><i class="fab fa-instagram"></i></a>
+                            {{-- <a href="{{ setting('') }}"><i class="fab fa-dribbble"></i></a> --}}
                         </div>
                     </div>
                 </div>

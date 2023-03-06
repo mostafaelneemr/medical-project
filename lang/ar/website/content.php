@@ -10,6 +10,8 @@ return [
     'email' => 'الايميل',
     'phone_number' => 'رقم الهاتف',
     'your_message' => 'اترك رسالة',  
+    'contact_us' => 'اتصل بنا',
+
 ];
 
 ?>

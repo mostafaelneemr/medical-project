@@ -128,7 +128,7 @@
                                 <!-- End Dropdown Menu -->
                             </li> --}}
 
-                            <li class="lavel-1"><a href="inner-page/interior/contact.html"><span>{{ __('website/title.contact') }}</span></a></li>
+                            <li class="lavel-1"><a href="{{ route('contact') }}"><span>{{ __('website/title.contact') }}</span></a></li>
                         </ul>
                     </nav>
                 </div>
@@ -142,13 +142,13 @@
                             <div class="bk-hover mb--40">
                                 <h5 class="heading heading-h5 text-white">Connect</h5>
                                 <div class="bkseparator--20"></div>
-                                <p class="bk_pra font-16">2005 Stokes Isle Apt. 896, Vacaville 10010, USA</p>
-                                <p class="bk_pra font-16"><a href="#">info@yourdomain.com</a></p>
+                                <p class="bk_pra font-16">{{ setting('address') }}</p>
+                                <p class="bk_pra font-16"><a href="#">{{setting('email')}}</a></p>
                             </div>
                             <ul class="social-icon text-start tooltip-layout icon-size-large">
-                                <li class="facebook"><a href="#" class="link hint--bounce hint--top hint--white" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
-                                <li class="twitter"><a href="#" class="link hint--bounce hint--top hint--white" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
-                                <li class="instagram"><a href="#" class="link hint--bounce hint--top hint--white" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
+                                <li class="facebook"><a href="{{ setting('facebook') }}" class="link hint--bounce hint--top hint--white" aria-label="Facebook"><i class="fab fa-facebook"></i></a></li>
+                                <li class="twitter"><a href="{{ setting('twitter') }}" class="link hint--bounce hint--top hint--white" aria-label="Twitter"><i class="fab fa-twitter"></i></a></li>
+                                <li class="instagram"><a href="{{ setting('instagram') }}" class="link hint--bounce hint--top hint--white" aria-label="Instagram"><i class="fab fa-instagram"></i></a></li>
                             </ul>
 
                         </div>

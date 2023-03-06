@@ -22,7 +22,6 @@
          <ul id="elements" class="collapse" data-parent="#sidebarnav">
           <li><a href="{{route('home-slider.index')}}">Slider Section</a></li>
           <li><a href="{{route('main-section.index')}}">Main Section</a></li>
-          <li><a href="{{route('interior_Section.index')}}">Interior Section</a></li>
           <li><a href="{{route('images.index')}}">Image Section</a></li>
           <li><a href="{{route('products.index')}}">Products Section</a></li>
           <li><a href="{{route('clients.index')}}">OurClients Section</a></li>
@@ -37,9 +36,9 @@
          </a>
          <ul id="calendar-menu" class="collapse" data-parent="#sidebarnav">
            <li> <a href="{{ route('about-slider.index') }}">Slider Section</a></li>
-           <li><a href="{{route('customers.index')}}">Customers Section</a></li>
            <li><a href="{{route('help-section.index')}}">Help Section</a></li>
            <li><a href="{{route('image-section.index')}}">Image Section</a></li>
+           <li><a href="{{route('customers.index')}}">Customers Section</a></li>
 
            {{-- <li> <a href="calendar-list.html">List Calendar</a> </li> --}}
          </ul>
@@ -49,27 +48,26 @@
 
        <!-- menu item Charts-->
        <li>
-         <a href="javascript:void(0);" data-toggle="collapse" data-target="#chart">
-           <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">Charts</span></div>
-           <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
+         <a href="javascript:void(0);" data-toggle="collapse" data-target="#service">
+          <div class="pull-left"><i class="ti-pie-chart"></i><span class="right-nav-text">Services</span></div>
+          <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
          </a>
-         <ul id="chart" class="collapse" data-parent="#sidebarnav">
-           <li> <a href="chart-js.html">Chart.js</a> </li>
-           <li> <a href="chart-morris.html">Chart morris </a> </li>
-           <li> <a href="chart-sparkline.html">Chart Sparkline</a> </li>
+         <ul id="service" class="collapse" data-parent="#sidebarnav">
+          <li><a href="{{ route('service-slider.index') }}">Slider Section</a> </li>
+          <li><a href="{{route('interior_Section.index')}}">Interior Section</a></li>
+          <li><a href="{{ route('service.index') }}">Service Section</a></li>
+          <li><a href="{{ route('service-cart.index') }}">Cart Section</a></li>
          </ul>
        </li>
 
        <!-- menu font icon-->
         <li>
-         <a href="javascript:void(0);" data-toggle="collapse" data-target="#font-icon">
-           <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">font icon</span></div>
+         <a href="javascript:void(0);" data-toggle="collapse" data-target="#contact">
+           <div class="pull-left"><i class="ti-home"></i><span class="right-nav-text">Contact</span></div>
            <div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div>
          </a>
-         <ul id="font-icon" class="collapse" data-parent="#sidebarnav">
-           <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-           <li> <a href="themify-icons.html">Themify icons</a> </li>
-           <li> <a href="weather-icon.html">Weather icons</a> </li>
+         <ul id="contact" class="collapse" data-parent="#sidebarnav">
+           <li> <a href="{{ route('contact-slider.index') }}">Contact Slider</a></li>
          </ul>
        </li>
 
