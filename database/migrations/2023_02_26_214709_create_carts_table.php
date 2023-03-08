@@ -15,6 +15,10 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
+            $table->string('title');
+            $table->string('description');
+            $table->string('button')->nullable();
             $table->enum('publish', ['1','0'])->default('1');
             $table->timestamps();
         });
@@ -30,3 +34,7 @@ return new class extends Migration
         Schema::dropIfExists('carts');
     }
 };
+
+
+
+?>

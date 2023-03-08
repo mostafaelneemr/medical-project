@@ -6,19 +6,21 @@
 
 @section('content')
 
+    @foreach ($sliders as $slider)
     <!-- Start Breadcaump Area -->
     <div class="breadcaump-area bg_image--127 ptb--270 breadcaump-title-bar breadcaump-title-white" data-black-overlay='5'>
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcaump-inner text-center">
-                        <h1 class="heading heading-h1 text-white">Service</h1>
+                        <h1 class="heading heading-h1 text-white">{{ $slider->title }}</h1>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- End Breadcaump Area -->
+    @endforeach
 
     <!-- Start Service Area -->
     <div class="bk-service-area pt--70 pt_md--50 pt_sm--30 bg_color--1">
@@ -29,7 +31,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12 wow move-up">
                     <div class="service service--1 text-center mt--30">
                         <div class="icons">
-                            <img src="{{asset('website/img/interior/ios7-eye-outline.png')}}" alt="icon">
+                            <img src="{{ asset($interior->icon )}}" alt="icon">
                         </div>
                         <div class="content">
                             <h4>{{$interior->interior_title}}</h4>
@@ -46,6 +48,7 @@
     </div>
     <!-- End Service Area -->
 
+    @foreach ($services as $service)        
     <!-- Start Accordion Area -->
     <div class="bk-accordion-area ptb--100 ptb-md--80 ptb-sm--60 bg_color--1">
         <div class="container">
@@ -53,7 +56,7 @@
                 <!-- Start Single Accordion -->
                 <div class="col-lg-6">
                     <div class="thumb">
-                        <img class="w-100" src="../../img/interior/we-challenge.jpg" alt="about images">
+                        <img class="w-100" src="{{ asset($service->image) }}" alt="about images">
                     </div>
                 </div>
                 <!-- End Single Accordion -->
@@ -61,7 +64,7 @@
                 <!-- Start Single Accordion -->
                 <div class="col-lg-6 mt_md--40 mt_sm--40">
                     <div class="brook-section-title mb--50 mb_md--20 mb_sm--20">
-                        <h3 class="heading heading-h3">What we do</h3>
+                        <h3 class="heading heading-h3">{{$service->head}}</h3>
                     </div>
                     <div class="bk-accordion-style--2" id="accordionExampl3">
     
@@ -70,16 +73,13 @@
                                 <h5 class="mb-0">
                                     <a href="#" class="acc-btn" data-bs-toggle="collapse" data-bs-target="#collapsesix"
                                         aria-expanded="false" aria-controls="collapsesix">
-                                        Digital strategy
+                                        {{ $service->title }}
                                     </a>
                                 </h5>
                             </div>
     
                             <div id="collapsesix" class="collapse" aria-labelledby="headingsix" data-bs-parent="#accordionExampl3">
-                                <div class="card-body">We learn from landing page's best practices and great
-                                    landing pages in order to create a clear, crisp design that suits all your
-                                    needs for a responsive landing site.
-                                </div>
+                                <div class="card-body">{{ $service->description }}</div>
                             </div>
                         </div>
                     </div>
@@ -88,13 +88,15 @@
             </div>
         </div>
     </div>
+    @endforeach
     <!-- End Accordion Area -->
 
     <!-- Start Boxes Area -->
     <div class="bk-info-box-area">
         <div class="bk-info-boxes">
             <!-- Start Single Box -->
-            <div class="info-grid-box has-image" style="background-image: url(../../img/interior/banner1.jpg)">
+            @foreach ($carts as $cart)        
+            <div class="info-grid-box has-image" style="background-image: url('{{ asset($cart->image) }}')">
                 <div class="box-content">
                     <div class="box-content-inner">
                         <div class="box-info">
@@ -110,22 +112,19 @@
                 <div class="box-content">
                     <div class="box-content-inner">
                         <div class="box-info">
-                            <h4 class="heading heading-h4 text-white">Unlimited power & customization possibilities</h4>
+                            <h4 class="heading heading-h4 text-white">{{ $cart->title }}</h4>
                             <div class="content mt--25">
-                                <p class="bk_pra text-white">Brook presents your services with flexible, convenient and
-                                    multipurpose layouts. You can select your favorite layouts & elements for
-                                    particular projects with unlimited customization possibilities. </p>
+                                <p class="bk_pra text-white">{{ $cart->description }}.</p>
                             </div>
                             <div class="box-btn mt--100 mt_sm--30">
-                                <a class="brook-btn bk-btn-theme btn-sd-size btn-rounded space-between" href="#">Learn
-                                    More</a>
+                                {{-- <a class="brook-btn bk-btn-theme btn-sd-size btn-rounded space-between" href="#">LearnMore</a> --}}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- End Single Box -->
-    
+            @endforeach
         </div>
     </div>
     <!-- End Boxes Area -->
@@ -133,13 +132,7 @@
     <!-- Start Team Area -->
     <div class="bk-team-area ptb--100 ptb-md--80 ptb-sm--60 bg_color--1">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="brook-section-title text-center">
-                        <h3 class="heading heading-h3">Our Expert</h3>
-                    </div>
-                </div>
-            </div>
+           
             <div class="row">
                 <!-- Start Single Team -->
                 @foreach ($clients as $client)                

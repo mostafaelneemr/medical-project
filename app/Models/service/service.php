@@ -12,7 +12,13 @@ class service extends Model
     use HasFactory;
     use Hastranslations;
     
-    protected $table = '';
-    public $translatable = [];
-    protected $guarded = [];
+    protected $table = 'services';
+    public $translatable = ['head', 'title', 'description'];
+    protected $guarded = [''];
 }
+
+
+
+
+
+?>

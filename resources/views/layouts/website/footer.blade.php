@@ -21,11 +21,11 @@
                         <h2 class="widgettitle">About us</h2>
                         <div class="footer-menu">
                             <ul class="ft-menu-list bk-hover">
-                                <li><a href="{{ route('about') }}">About Us</a></li>
+                                <li><a href="{{ route('about') }}">{{__('website/title.about_us')}}</a></li>
                                 <li><a href="team.html">Team</a></li>
                                 <li><a href="#">Career</a></li>
-                                <li><a href="{{ route('service') }}">Services</a></li>
-                                <li><a href="{{ route('contact') }}">Contact</a></li>
+                                <li><a href="{{ route('service') }}">{{__('website/title.service')}}</a></li>
+                                <li><a href="{{ route('contact') }}">{{__('website/title.contact')}}</a></li>
                             </ul>
                         </div>
                     </div>

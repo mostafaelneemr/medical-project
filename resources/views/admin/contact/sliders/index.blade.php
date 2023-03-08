@@ -4,9 +4,7 @@
     slider section
 @endsection
 
-
 @section('content')
-
     <div class="row">
         <div class="col-md-12 ">
 
@@ -15,8 +13,8 @@
             <div class="card">
                 <div class="card-header">
                     <h3> Slider List
-                        @if (\app\Models\Slider::where('slider_type' , 'home')->count() == 0)
-                            <a href="{{route('home-slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
+                        @if (\app\Models\Slider::where('slider_type' , 'contact')->count() == 0)
+                            <a href="{{route('contact-slider.create')}}" class="btn btn-primary text-white float-start m-4">Add Slider</a>
                         @endif
                     </h3>
                 </div>
@@ -28,7 +26,6 @@
                                 <th>#</th>
                                 <th>Image</th>
                                 <th>Title</th>
-                                <th>Button</th>
                                 <th>Publish</th>
                                 <th>Action</th>
                             </tr>
@@ -40,11 +37,10 @@
                                 <td>{{$loop->iteration}}</td>
                                 <td><img src="{{asset($slider->image_url)}}" style="width: 150px; height: 100px" alt=""></td>
                                 <td>{{$slider->title}}</td>
-                                <td>{{$slider->button}}</td>
                                 <td class={{$slider->publish == 1 ? 'text-success':'text-danger'}}>{{$slider->publish == 1 ? 'published' : 'draft'}}</td>
                                 <td>
-                                    <a href="{{route('home-slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
-                                    <a href="{{route('home-slider.destroy', $slider->id)}}" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
+                                    <a href="{{route('contact-slider.edit', $slider->id)}}" class="btn btn-info btn-sm" title="Edit" role="button" aria-pressed="true"><i class="fa fa-edit"></i></a>
+                                    <a href="{{route('contact-slider.destroy', $slider->id)}}" class="btn btn-danger btn-sm" title="delete" role="button" aria-pressed="true"><i class="fa fa-trash"></i></a>
                                 </td>
                             </tr>
                         @endforeach

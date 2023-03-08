@@ -27,7 +27,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <form class="form" action="{{route('service-slider.update', $slider->id)}}" method="POST" enctype="multipart/form-data">
+                <form class="form" action="{{route('contact-slider.update', $slider->id)}}" method="POST" enctype="multipart/form-data">
                     @method('PUT')
                     @csrf
 
@@ -70,7 +70,7 @@
                                 <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror
                             </div>
-                        </div>  
+                        </div>
 
                         <div class="form-row">
                             <div class="form-group col-md-12">

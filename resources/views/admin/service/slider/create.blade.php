@@ -26,7 +26,7 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
-                <form class="form" action="{{route('about-slider.store')}}" method="POST" enctype="multipart/form-data">
+                <form class="form" action="{{route('service-slider.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="form-group">

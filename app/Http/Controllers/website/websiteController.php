@@ -10,20 +10,22 @@ use App\Models\home\{Image_Section, Product};
 use App\Models\service\Interior_Section;
 use App\Models\Main_Section;
 use App\Models\OurClient;
+use App\Models\service\cart;
+use App\Models\service\service;
 use App\Models\Slider;
 use Illuminate\Http\Request;
 
 class websiteController extends Controller
 {
-    public function slider()
-    {
-        $sliders = Slider::orderBy('id', 'DESC')->where('publish', '1')->get();
-        return view('layouts.website.master', compact('sliders'));
-    }
+    // public function slider()
+    // {
+    //     $sliders = Slider::orderBy('id', 'DESC')->where('publish', '1')->get();
+    //     return view('layouts.website.master', compact('sliders'));
+    // }
 
     public function home()
     {
-        $sliders = Slider::orderBy('id', 'DESC')->where('slider_type', 'home')->get();
+        $sliders = Slider::orderBy('id', 'DESC')->where('slider_type', 'home')->where('publish', 1)->get();
         $main_sections = Main_Section::orderBy('id', 'DESC')->where('publish', 1)->get();
         $interiors = Interior_Section::orderBy('id' , 'DESC')->paginate(3);
         $images = Image_Section::orderBy('id', 'DESC')->where('publish', 1)->get();
@@ -35,7 +37,7 @@ class websiteController extends Controller
 
     public function about()
     {
-        $sliders = Slider::orderBy('id', 'DESC')->where('slider_type', 'about')->get();
+        $sliders = Slider::orderBy('id', 'DESC')->where('slider_type', 'about')->where('publish', 1)->get();
         $customers = Customer::orderBy('id', 'DESC')->where('publish', 1)->get();
         $helps = help::orderBy('id', 'DESC')->where('publish', 1)->get();
         $images = About_Image::orderBy('id', 'DESC')->get();
@@ -44,14 +46,18 @@ class websiteController extends Controller
 
     public function service()
     {
+        $sliders = Slider::orderBy('id', 'DESC')->where('slider_type', 'service')->where('publish', 1)->get();
+        $services = service::orderBy('id', 'DESC')->where('publish', 1)->get();
         $interiors = Interior_Section::orderBy('id', 'DESC')->get();
         $clients = OurClient::orderBy('id', 'DESC')->get();
-        return view('website.service', compact('interiors', 'clients'));
+        $carts = cart::orderBy('id', 'DESC')->where('publish', 1)->get();
+        return view('website.service', compact('interiors', 'clients', 'sliders', 'services', 'carts'));
     }
 
     public function contact()
     {
-        return view('website.contact');
+        $sliders = Slider::orderBy('id', 'DESC')->where('slider_type', 'contact')->where('publish', 1)->get();
+        return view('website.contact', compact('sliders'));
     }
 
 }

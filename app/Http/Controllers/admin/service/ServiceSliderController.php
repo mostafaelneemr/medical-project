@@ -14,7 +14,7 @@ class ServiceSliderController extends Controller
     
     public function index()
     {
-        $sliders = Slider::where('slider_type', 'service')->get();
+        $sliders = Slider::where('slider_type', static::SLIDER_TYPE)->get();
         return view('admin.service.slider.index', compact('sliders'));
     }
 
@@ -28,8 +28,8 @@ class ServiceSliderController extends Controller
         try{
             $image = $request->file('image_url');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::make($image)->resize(1920, 1000)->save('upload/homepage/' . $name_gen);
-            $save_url = 'upload/homepage/' . $name_gen;
+            Image::make($image)->resize(1920, 1000)->save('upload/service/' . $name_gen);
+            $save_url = 'upload/service/' . $name_gen;
 
             Slider::create([
                 'title' => ['ar' => $request->title_ar, 'en' => $request->title], 
@@ -50,7 +50,7 @@ class ServiceSliderController extends Controller
     public function edit($id)
     {
         $slider = Slider::findorFail($id);
-        return view('admin.homepage.slider.edit', compact('slider'));
+        return view('admin.service.slider.edit', compact('slider'));
     }
 
     public function update(Request $request, $id)
@@ -63,8 +63,8 @@ class ServiceSliderController extends Controller
                 @unlink($old_image);
                 $image = $request->file('image_url');
                 $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-                Image::make($image)->resize(1920,1000)->save('upload/homepage/'.$name_gen);
-                $save_url = 'upload/homepage/'.$name_gen;
+                Image::make($image)->resize(1920,1000)->save('upload/service/'.$name_gen);
+                $save_url = 'upload/service/'.$name_gen;
                 slider::findOrFail($id)->update(['image_url' => $save_url]);
             }
 
@@ -98,3 +98,14 @@ class ServiceSliderController extends Controller
         return redirect::back()->with($notification);
     }
 }
+
+
+
+
+
+
+
+
+
+
+?>

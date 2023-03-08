@@ -3,7 +3,7 @@
 use App\Http\Controllers\admin\about\{AboutImageController, AboutSliderController, CustomerController, HelpController};
 use App\Http\Controllers\admin\contact\ContactSliderController;
 use App\Http\Controllers\admin\home\{ImageSectionController , SliderController, ProductController};
-use App\Http\Controllers\admin\service\{Interior_SectionController, ServiceSliderController};
+use App\Http\Controllers\admin\service\{CartController, Interior_SectionController, ServiceController, ServiceSliderController};
 use App\Http\Controllers\admin\Main_SectionController;
 use App\Http\Controllers\admin\OurClientController;
 use App\Http\Controllers\admin\settingController;
@@ -49,8 +49,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'
     Route::group(['prefix' => 'service'], function () {
         Route::resource('service-slider', ServiceSliderController::class);
         Route::resource('interior_Section', Interior_SectionController::class);
-        Route::resource('service', ServiceSliderController::class);
-        Route::resource('service-cart', ServiceSliderController::class);
+        Route::resource('service', ServiceController::class);
+        Route::resource('service-cart', CartController::class);
     });
 
     Route::group(['prefix' => 'contact'], function () {
@@ -77,3 +77,10 @@ Route::group(
         Route::get('/service', [websiteController::class, 'service'])->name('service');
         Route::get('/contact', [websiteController::class, 'contact'])->name('contact');
     });
+
+
+
+
+
+
+?>

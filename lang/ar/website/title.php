@@ -6,6 +6,8 @@ return [
     'about' => 'نحن',
     'service' => 'الخدمات',
     'contact' => 'تواصل',
+    'about_us' => 'ماذا عنا',
+
 ];
 
 ?>

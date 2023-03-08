@@ -6,17 +6,19 @@
 
 @section('content')
 
-<div class="breadcaump-area bg_image--126 ptb--270 breadcaump-title-bar breadcaump-title-white" data-black-overlay='5'>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="breadcaump-inner text-center">
-                    <h1 class="heading heading-h1 text-white">Contact Us</h1>
+@foreach ($sliders as $slider)
+    <div class="breadcaump-area bg_image--126 ptb--270 breadcaump-title-bar breadcaump-title-white" data-black-overlay='5'>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcaump-inner text-center">
+                        <h1 class="heading heading-h1 text-white">{{$slider->title}}</h1>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+@endforeach
 
 <!-- Start Contact Area -->
 <div class="contact-us-area">
