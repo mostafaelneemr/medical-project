@@ -182,7 +182,7 @@
                     </div>
                     <div class="product-info">
                         <h5 class="heading heading-h5"><a >{{$product->title}}</a></h5>
-                        <div class="price"><span class="new-price">${{$product->price}}</span></div>
+                        {{-- <div class="price"><span class="new-price">${{$product->price}}</span></div> --}}
                     </div>
                 </div>
             </div>
