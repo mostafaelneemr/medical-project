@@ -34,26 +34,27 @@
             <div class="inner">
                 <div class="mobileheader">
                     <div class="logo">
-                        <a href="index.html">
-                            <img src="img/logo/brook-black.png" alt="Multipurpose">
+                        <a href="{{ route('home') }}">
+                            <img src="{{asset('website/img/logo/brook-black.png')}}" alt="Multipurpose">
                         </a>
                     </div>
                     <a class="mobile-close" href="#"></a>
                 </div>
                 <div class="menu-content">
                     <ul class="menulist object-custom-menu">
-                        <li><a href="index-interior.html"><span>Home</span></a></li>
-                        <li><a href="inner-page/interior/about.html"><span>About</span></a></li>
+                        <li><a href="{{ route('home') }}"><span>{{ __('website/title.homepage') }}</span></a></li>
+                        <li><a href="{{ route('about') }}"><span>{{ __('website/title.about') }}</span></a></li>
 
-                        <li class="has-mega-menu"><a href="#"><span>Pages</span></a>
+                        <li><a href="{{ route('service') }}"><span>{{ __('website/title.service') }}</span></a></li>
+
+                        {{-- <li class="has-mega-menu"><a href="#"><span>Pages</span></a>
                             <!-- Start Dropdown Menu -->
                             <ul class="object-submenu">
-                                <li><a href="inner-page/interior/service.html"><span>Service</span></a></li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="has-mega-menu"><a href="inner-page/interior/shop.html"><span>Shop</span></a>
-
+                        {{-- <li class="has-mega-menu"><a href="inner-page/interior/shop.html"><span>Shop</span></a> --}}
+                        {{-- 
                                 <!-- Start Dropdown Menu -->
                                 <ul class="object-submenu">
                                     <li><a href="inner-page/interior/shop.html"><span>Shop</span></a></li>
@@ -64,17 +65,17 @@
                                     <li><a href="inner-page/interior/my-account.html"><span>My Account</span></a></li>
                                     <li><a href="inner-page/interior/login-register.html"><span>Login Register</span></a></li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li class="has-mega-menu"><a href="#"><span>Blog</span></a>
+                        {{-- <li class="has-mega-menu"><a href="#"><span>Blog</span></a>
                             <!-- Start Dropdown Menu -->
                             <ul class="object-submenu">
                                 <li><a href="inner-page/interior/blog.html"><span>Blog</span></a></li>
                                 <li><a href="inner-page/interior/blog-details.html"><span>Blog Details</span></a></li>
                             </ul>
-                        </li>
+                        </li> --}}
 
-                        <li><a href="inner-page/interior/contact.html"><span>Contact</span></a></li>
+                        <li><a href="{{ route('contact') }}"><span>{{ __('website/title.contact') }}</span></a></li>
                     </ul>
                 </div>
             </div>
